@@ -6,7 +6,7 @@ import LoginForm from "./LoginForm";
 function LoginPage() {
   return (
     <LoginStyled>
-      <h1>Goat Luxury</h1>
+      <h1>The Goat Luxury</h1>
       <h2>Welcome</h2>
       <LoginForm />
     </LoginStyled>
