@@ -1,19 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import Luxury from "../../../assets/picture/goatluxury.jpg";
+import LoginForm from "./LoginForm";
 
 function LoginPage() {
   return (
     <LoginStyled>
       <h1>Goat Luxury</h1>
       <h2>Welcome</h2>
-      <hr />
-
-      <div className="form-container">
-        <h2>Connectez-vous</h2>
-        <input type="text" className="input-style" />
-        <button>accéder à mon espace</button>
-      </div>
+      <LoginForm />
     </LoginStyled>
   );
 }
@@ -48,14 +43,6 @@ const LoginStyled = styled.div`
     font-family: "Playfair Display", serif;
     color: white;
     font-size: 36px;
-  }
-
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    height: 250px;
-    width: 30%;
-    border: 1px solid red;
   }
 `;
 
