@@ -5,8 +5,13 @@ import TextInput from "../../../reusable-ui/TextInput";
 import { BsPersonCircle } from "react-icons/bs";
 
 function LoginForm() {
+  // state ------
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("onSubmit");
+  };
   return (
-    <LoginFromStyle>
+    <LoginFromStyle onSubmit={handleSubmit}>
       <hr />
       <h2>Connectez-vous</h2>
 
