@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-function TextInput({ Icon }) {
+function TextInput({ Icon, value, onChange }) {
   return (
     <TextInputStyled>
       {Icon && Icon}
-      <input type="text" />
+      <input type="text" value={value} onChange={onChange} />
     </TextInputStyled>
   );
 }
