@@ -21,6 +21,7 @@ const NavbarStyled = styled.div`
   background-color: white;
   padding-left: 5px;
   padding-right: 5px;
+  /* position: sticky; */
 `;
 
 export default Navbar;

@@ -18,7 +18,7 @@ const HeadStyled = styled.div`
   align-items: center;
   height: 580px;
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background: url(${headPicture});
   background-size: cover;
   background-position: center;

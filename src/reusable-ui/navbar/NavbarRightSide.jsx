@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { BiUser } from "react-icons/bi";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Profile from "../Profile";
 
 function NavbarRightSide({ userName }) {
   return (
     <NavbarRightSideStyled>
-      <div className="info">
+      {/* <div className="info">
         <div className="userlogo">
           <BiUser className="icon" />
         </div>
@@ -20,7 +19,8 @@ function NavbarRightSide({ userName }) {
             </div>
           </Link>
         </div>
-      </div>
+      </div> */}
+      <Profile userName={userName} />
       <div className="cartlogo">
         <FiShoppingCart className="icon" />
       </div>
@@ -38,7 +38,7 @@ const NavbarRightSideStyled = styled.div`
   width: 100%;
   /* border: 1px solid red; */
 
-  .info {
+  /* .info {
     display: flex;
     flex-direction: row-reverse;
     height: 100%;
@@ -51,7 +51,7 @@ const NavbarRightSideStyled = styled.div`
       align-items: center;
       height: 100%;
       width: 80px;
-      /* border: 1px solid black; */
+      /* border: 1px solid black; 
 
       .icon {
         color: black;
@@ -66,17 +66,17 @@ const NavbarRightSideStyled = styled.div`
       align-items: center;
       height: 100%;
       width: 67%;
-      /* border: 1px solid blue; */
+      /* border: 1px solid blue; *
 
       .logout {
         height: 30%;
         width: 100%;
-        /* border: 1px solid pink; */
+        /* border: 1px solid pink; 
         text-decoration: none;
         color: black;
       }
     }
-  }
+  } */
 
   .cartlogo {
     display: flex;
