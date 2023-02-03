@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
 import Head from "./Head";
-import Navbar from "../../../../reusable-ui/Navbar";
+import Navbar from "../../../../reusable-ui/navbar/Navbar";
 
 function Home() {
   // state --------
