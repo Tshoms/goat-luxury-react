@@ -10,10 +10,9 @@ function Home() {
   const userName = searchParams.get("userName");
   return (
     <HomeStyled>
-      <Navbar />
+      <Navbar userName={userName} />
       <Head />
       <h1>Hello welcome to Home !!!</h1>
-      <span>{userName}</span>
     </HomeStyled>
   );
 }

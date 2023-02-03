@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { BiUser } from "react-icons/bi";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-function NavbarRightSide() {
+function NavbarRightSide({ userName }) {
   return (
     <NavbarRightSideStyled>
       <div className="info">
@@ -12,10 +13,12 @@ function NavbarRightSide() {
           <BiUser className="icon" />
         </div>
         <div className="username">
-          <p>Hey, Jordy</p>
-          <div className="logout">
-            <p>déconnexion</p>
-          </div>
+          <p>Hey, {userName}</p>
+          <Link to={"/"}>
+            <div className="logout">
+              <p>déconnexion</p>
+            </div>
+          </Link>
         </div>
       </div>
       <div className="cartlogo">
@@ -33,7 +36,7 @@ const NavbarRightSideStyled = styled.div`
   flex-direction: row-reverse;
   height: 100%;
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   .info {
     display: flex;
@@ -48,7 +51,7 @@ const NavbarRightSideStyled = styled.div`
       align-items: center;
       height: 100%;
       width: 80px;
-      border: 1px solid black;
+      /* border: 1px solid black; */
 
       .icon {
         color: black;
@@ -63,12 +66,14 @@ const NavbarRightSideStyled = styled.div`
       align-items: center;
       height: 100%;
       width: 67%;
-      border: 1px solid blue;
+      /* border: 1px solid blue; */
 
       .logout {
         height: 30%;
         width: 100%;
-        border: 1px solid pink;
+        /* border: 1px solid pink; */
+        text-decoration: none;
+        color: black;
       }
     }
   }
@@ -79,7 +84,7 @@ const NavbarRightSideStyled = styled.div`
     align-items: center;
     width: 10%;
     height: 100%;
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
     .icon {
       color: black;
       font-size: 35px;
@@ -92,7 +97,7 @@ const NavbarRightSideStyled = styled.div`
     align-items: center;
     width: 10%;
     height: 100%;
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
     .icon-heart {
       color: black;
       font-size: 30px;
