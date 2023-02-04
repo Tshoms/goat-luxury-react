@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
 import Head from "./Head";
 import Navbar from "../../../../reusable-ui/navbar/Navbar";
+import Article from "./Article";
 
 function Home() {
   // state --------
@@ -12,7 +13,7 @@ function Home() {
     <HomeStyled>
       <Navbar userName={userName} />
       <Head />
-      <h1>Hello welcome to Home !!!</h1>
+      <Article />
     </HomeStyled>
   );
 }

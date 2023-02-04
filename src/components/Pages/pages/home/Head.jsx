@@ -21,7 +21,7 @@ const HeadStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 580px;
+  height: 550px;
   width: 100%;
   /* border: 1px solid red; */
   background: url(${headPicture});
