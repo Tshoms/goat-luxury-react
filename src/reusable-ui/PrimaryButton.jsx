@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 function PrimaryButton({ label, className }) {
   return (
-    <PrimaryButtonStuled>
+    <PrimaryButtonStuled className={className}>
       <span>{label}</span>
     </PrimaryButtonStuled>
   );
