@@ -28,9 +28,8 @@ const ArticleStyled = styled.div`
   justify-content: center;
   align-items: center;
   height: 100px;
-  width: 100%;
   background-color: white;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   .delivery-info {
     display: flex;
     flex-direction: row;
