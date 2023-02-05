@@ -7,16 +7,16 @@ function Article() {
     <ArticleStyled>
       <div className="delivery-info">
         <div className="button-container">
-          <PrimaryButton className={"primary-article"} label={"Clothes"} />
+          <PrimaryButton className="primary-article" label="Clothes" />
         </div>
         <div className="button-container">
-          <PrimaryButton className={"primary-article"} label={"Sneakers"} />
+          <PrimaryButton className="primary-article" label="Sneakers" />
         </div>
         <div className="button-container">
-          <PrimaryButton className={"primary-article"} label={"Bag"} />
+          <PrimaryButton className="primary-article" label="Bag" />
         </div>
         <div className="button-container">
-          <PrimaryButton className={"primary-article"} label={"Jewelry"} />
+          <PrimaryButton className="primary-article" label="Jewelry" />
         </div>
       </div>
     </ArticleStyled>
@@ -27,7 +27,7 @@ const ArticleStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150px;
+  height: 100px;
   width: 100%;
   background-color: white;
   border: 1px solid green;
@@ -47,7 +47,7 @@ const ArticleStyled = styled.div`
       width: 160px;
 
       .primary-article {
-        padding: 20px;
+        padding: 15px;
         span {
           font-family: "Playfair Display", serif;
           font-size: 25px;
