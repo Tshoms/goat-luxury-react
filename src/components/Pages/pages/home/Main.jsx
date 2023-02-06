@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { sneakers } from "../../../../fakedata/ProductsData";
-import jordan from "../../../../assets/images/jordan-one-infrared.jpg";
-// import headPicture from "../../../../assets/images/headpicture.jpg";
 
 function Main() {
   // state -------------
@@ -13,7 +11,7 @@ function Main() {
         return (
           <div className="grid-items">
             <div key={product.id} className="img-products">
-              <img src={jordan} alt={product.name} />
+              <img src={product.image} alt={product.name} />
             </div>
             <div className="title-products">{product.name}</div>
           </div>

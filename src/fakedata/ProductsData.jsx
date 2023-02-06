@@ -1,94 +1,97 @@
+// import jordanOne from "../fakedata/images/jordan-one.jpg";
+// import jordOne from "./images/jordan-one.jpg";
+
 export const sneakers = [
   {
     id: 1,
-    image: "../assets/images/jordan-one-classic.jpg",
+    image: require("../assets/images/jordan-one.jpg"),
     name: "jordan one classic",
     price: 120,
   },
   {
     id: 2,
-    image: "../assets/images/jordan-one-infrared.jpg",
+    image: require("../assets/images/jordan-one-blue.jpg"),
     name: "jordan one infrared",
     price: 120,
   },
   {
     id: 3,
-    image: "../assets/images/jordan-one-blue.jpg",
+    image: require("../assets/images/jordan-one-infrared.jpg"),
     name: "jordan one blue",
     price: 120,
   },
   {
     id: 4,
-    image: "../assets/images/off-white-jordan-one-red.jpg",
+    image: require("../assets/images/off-white-jordan-one-red.jpg"),
     name: "off-white jordan one red",
     price: 120,
   },
 
   {
     id: 5,
-    image: "../assets/images/off-white-jordan-one-white.jpg",
+    image: require("../assets/images/off-white-jordan-one-blue.jpg"),
     name: "off-white jordan one white",
     price: 120,
   },
   {
     id: 6,
-    image: "../assets/images/off-white-jordan-one-blue.jpg",
+    image: require("../assets/images/off-white-jordan-one-white.jpg"),
     name: "off-white jordan one blue",
     price: 120,
   },
   {
     id: 7,
-    image: "../assets/images/yeezy-black-white.jpg",
+    image: require("../assets/images/yeezy-black-white.jpg"),
     name: "yeezy 350 classic",
     price: 120,
   },
   {
     id: 8,
-    image: "../assets/images/yeezy-350-green-orange.jpg",
+    image: require("../assets/images/yeezy-350-green-orange.jpg"),
     name: "yeezy 350 green/orange",
     price: 120,
   },
 
   {
     id: 9,
-    image: "../assets/images/yeezy-350-brown-orange.jpg",
+    image: require("../assets/images/yeezy-350-brown-orange.jpg"),
     name: "yeezy 350 brown/orange",
     price: 120,
   },
   {
     id: 10,
-    image: "../assets/images/yeezy-700-classic.jpg",
+    image: require("../assets/images/yeezy-700-classic.jpg"),
     name: "yeezy 700 classic",
     price: 120,
   },
   {
     id: 11,
-    image: "../assets/images/yeezy-700-green-brown.jpg",
+    image: require("../assets/images/yeezy-700-bleu.jpg"),
     name: "yeezy 700 green/brown",
     price: 120,
   },
   {
     id: 12,
-    image: "../assets/images/yeezy-700-bleu.jpg",
+    image: require("../assets/images/yeezy-700-green-brown.jpg"),
     name: "yeezy 700 blue",
     price: 120,
   },
 
   {
     id: 13,
-    image: "../assets/images/yeezy-700v3-white.jpg",
+    image: require("../assets/images/yeezy-700v3-white.jpg"),
     name: "yeezy 700v3 white",
     price: 120,
   },
   {
     id: 14,
-    image: "../assets/images/yeezy-700v3-blue.jpg",
+    image: require("../assets/images/yeezy-700v3-blue.jpg"),
     name: "yeezy 700v3 blue",
     price: 120,
   },
   {
     id: 15,
-    image: "../assets/images/yeezy-700v3-beige.jpg",
+    image: require("../assets/images/yeezy-700v3-beige.jpg"),
     name: "yeezy 700v3 beige",
     price: 120,
   },
