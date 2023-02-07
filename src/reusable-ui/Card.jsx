@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import PrimaryButton from "../reusable-ui/PrimaryButton";
 function Card({ id, name, image }) {
   return (
     <CardStyled>
@@ -8,6 +8,9 @@ function Card({ id, name, image }) {
         <img src={image} alt={name} />
       </div>
       <div className="title-products">{name}</div>
+      <div className="button-container">
+        <PrimaryButton label="buy" className="button-card" />
+      </div>
     </CardStyled>
   );
 }
@@ -39,7 +42,18 @@ const CardStyled = styled.div`
   }
 
   .title-products {
+    font-family: "Playfair Display", serif;
     height: 10%;
+  }
+
+  .button-container {
+    height: 20%;
+
+    .button-card {
+      padding: 9px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
   }
 `;
 
