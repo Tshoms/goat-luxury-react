@@ -8,8 +8,8 @@ function Main() {
   const [products, setProducts] = useState(sneakers);
   return (
     <MainStyled>
-      {products.map(({ id, name, image }) => {
-        return <Card id={id} image={image} name={name} />;
+      {products.map(({ id, name, image, price }) => {
+        return <Card id={id} image={image} name={name} price={price} />;
       })}
     </MainStyled>
   );
