@@ -1,21 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { sneakers } from "../../../../fakedata/ProductsData";
+import Card from "../../../../reusable-ui/Card";
 
 function Main() {
   // state -------------
   const [products, setProducts] = useState(sneakers);
   return (
     <MainStyled>
-      {products.map((product) => {
-        return (
-          <div className="grid-items">
-            <div key={product.id} className="img-products">
-              <img src={product.image} alt={product.name} />
-            </div>
-            <div className="title-products">{product.name}</div>
-          </div>
-        );
+      {products.map(({ id, name, image }) => {
+        return <Card id={id} image={image} name={name} />;
       })}
     </MainStyled>
   );
@@ -32,7 +26,7 @@ const MainStyled = styled.div`
   /* border: 1px solid red; */
   justify-content: center;
 
-  .grid-items {
+  /* .grid-items {
     display: flex;
     flex-direction: column;
     width: 280px;
@@ -54,14 +48,14 @@ const MainStyled = styled.div`
         border-top-right-radius: 10px;
         object-fit: cover;
 
-        /* object-fit: contain; */
+        /* object-fit: contain; 
       }
     }
 
     .title-products {
       height: 10%;
-    }
-  }
+    } 
+  }*/
 `;
 
 export default Main;
