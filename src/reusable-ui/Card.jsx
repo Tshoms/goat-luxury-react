@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import PrimaryButton from "../reusable-ui/PrimaryButton";
+import { AiFillHeart } from "react-icons/ai";
+
 function Card({ id, name, image, price }) {
   return (
     <CardStyled>
@@ -13,6 +15,9 @@ function Card({ id, name, image, price }) {
       </div>
       <div className="price">
         <span>{price} $</span>
+      </div>
+      <div className="favorite">
+        <AiFillHeart className="favorite-heart" />
       </div>
     </CardStyled>
   );
@@ -73,6 +78,25 @@ const CardStyled = styled.div`
     span {
       font-family: "Playfair Display", serif;
       color: black;
+    }
+  }
+
+  .favorite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 50px;
+    /* background-color: black; */
+    color: transparent;
+    /* border: 1px solid white; */
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+
+    .favorite-heart {
+      color: black;
+      font-size: 23px;
     }
   }
 `;
