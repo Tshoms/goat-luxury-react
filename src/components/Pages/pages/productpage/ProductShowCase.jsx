@@ -51,7 +51,7 @@ function ProductShowCase() {
           <div className="auth-logo">
             <GoVerified className="logo-auth" />
           </div>
-          <div className="button"></div>
+          <div className="button-container"></div>
         </div>
       </div>
     </ProductShowCaseStyled>
@@ -96,7 +96,7 @@ const ProductShowCaseStyled = styled.div`
       }
 
       .item-desciption {
-        height: 200px;
+        height: 260px;
         width: 100%;
         border: 1px solid red;
 
@@ -136,13 +136,19 @@ const ProductShowCaseStyled = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 244px;
+        height: 271px;
         width: 100%;
         border: 1px solid black;
 
         .logo-auth {
           font-size: 97px;
         }
+      }
+
+      .button-container {
+        height: 208px;
+        width: 100%;
+        border: 1px solid red;
       }
     }
   }
