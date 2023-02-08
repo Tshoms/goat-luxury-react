@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import headPicture from "../../../../assets/picture/headpicture.jpg";
+import headPicture from "../../../../assets/images/headpicture.jpg";
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
 
 function Head() {
@@ -11,7 +11,6 @@ function Head() {
       <div className="scroll">
         <BsFillArrowDownCircleFill className="scroll-icon" />
       </div>
-      {/* <h4>Scroll</h4> */}
     </HeadStyled>
   );
 }
@@ -21,7 +20,7 @@ const HeadStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 580px;
+  height: 550px;
   width: 100%;
   /* border: 1px solid red; */
   background: url(${headPicture});

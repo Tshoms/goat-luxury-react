@@ -33,7 +33,7 @@ const ProfileStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 80px;
+    width: 65px;
     /* border: 1px solid black; */
 
     .icon {
