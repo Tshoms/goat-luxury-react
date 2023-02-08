@@ -7,11 +7,7 @@ function Card({ name, image, price }) {
   // state ------
   const [conteur, setConteur] = useState(0);
   // comportement --------
-  const handleClick = () => {
-    // console.log("Conteur");
-    setConteur(conteur + 1);
-    console.log(conteur);
-  };
+  const handleClick = () => {};
   return (
     <CardStyled>
       <div className="img-products">

@@ -12,7 +12,7 @@ function Main() {
       {products.map(({ id, name, image, price }) => {
         return (
           <Link to={{ pathname: `/produit/${id}` }}>
-            <Card id={id} image={image} name={name} price={price} />
+            <Card image={image} name={name} price={price} />
           </Link>
         );
       })}
