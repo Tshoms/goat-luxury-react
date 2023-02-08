@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { sneakers } from "../../../../fakedata/ProductsData";
 import Card from "../../../../reusable-ui/Card";
@@ -9,7 +10,11 @@ function Main() {
   return (
     <MainStyled>
       {products.map(({ id, name, image, price }) => {
-        return <Card id={id} image={image} name={name} price={price} />;
+        return (
+          <Link to={{ pathname: `/produit/${id}` }}>
+            <Card id={id} image={image} name={name} price={price} />
+          </Link>
+        );
       })}
     </MainStyled>
   );
