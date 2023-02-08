@@ -95,6 +95,12 @@ export const sneakers = [
     name: "Yeezy 700v3 beige",
     price: 120,
   },
+  {
+    id: 16,
+    image: require("../assets/images/jordan-dior.jpeg"),
+    name: "Jordan one Dior",
+    price: 120,
+  },
 ];
 
 export const clothes = [

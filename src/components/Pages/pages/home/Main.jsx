@@ -17,7 +17,7 @@ function Main() {
 
 const MainStyled = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 300px);
+  grid-template-columns: repeat(auto-fill, 300px);
   grid-gap: 15px;
   height: auto;
   margin: 30px auto;

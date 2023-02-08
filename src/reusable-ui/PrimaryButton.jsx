@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-function PrimaryButton({ label, className }) {
+function PrimaryButton({ label, className, onClick }) {
   return (
-    <PrimaryButtonStuled className={className}>
+    <PrimaryButtonStuled className={className} onClick={onClick}>
       <span>{label}</span>
     </PrimaryButtonStuled>
   );
