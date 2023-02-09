@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import PrimaryButton from "../reusable-ui/PrimaryButton";
 import { AiFillHeart } from "react-icons/ai";
-
-function Card({ name, image, price }) {
+import { Link } from "react-router-dom";
+function Card({ id, name, image, price }) {
   // state ------
   const [conteur, setConteur] = useState(0);
   // comportement --------
@@ -14,13 +14,15 @@ function Card({ name, image, price }) {
         <img src={image} alt={name} />
       </div>
       <div className="title-products">{name}</div>
-      <div className="button-container">
-        <PrimaryButton
-          label="buy"
-          className="button-card"
-          onClick={handleClick}
-        />
-      </div>
+      <Link to={{ pathname: `/produit/${id}` }}>
+        <div className="button-container">
+          <PrimaryButton
+            label="info"
+            className="button-card"
+            onClick={handleClick}
+          />
+        </div>
+      </Link>
       <div className="price">
         <span>{price} $</span>
       </div>
