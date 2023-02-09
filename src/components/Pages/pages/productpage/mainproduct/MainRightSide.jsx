@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { GoVerified } from "react-icons/go";
+import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
 
 function MainRightSide({ price }) {
   return (
@@ -21,6 +22,9 @@ function MainRightSide({ price }) {
           </label>
           <div className="input-style">
             <input type="number" id="quantity" />
+          </div>
+          <div className="button-container">
+            <PrimaryButton label="Buy" className="button-mainproduct" />
           </div>
         </form>
       </div>
@@ -78,7 +82,6 @@ const MainRightSideStyled = styled.div`
       flex-direction: column;
       height: 100%;
       width: 100%;
-      border: 1px solid green;
 
       label {
         height: 25%;
@@ -102,6 +105,20 @@ const MainRightSideStyled = styled.div`
         input {
           height: 25px;
           width: 50%;
+        }
+      }
+      .button-container {
+        height: 50%;
+        width: 100%;
+
+        .button-mainproduct {
+          padding: 42px;
+          border-radius: 0px;
+          border-bottom-right-radius: 20px;
+
+          label {
+            font-size: 20px;
+          }
         }
       }
     }
