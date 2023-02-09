@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "../../../../reusable-ui/navbar/Navbar";
-import MainProductShow from "./MainProductShow";
+import MainProductShow from "./mainproduct/MainProductShow";
 
 function ProductShowCase() {
   return (

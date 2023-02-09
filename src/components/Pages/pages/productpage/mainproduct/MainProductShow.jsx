@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { sneakers } from "../../../../fakedata/ProductsData";
+import { sneakers } from "../../../../../fakedata/ProductsData";
 import styled from "styled-components";
-import { GoVerified } from "react-icons/go";
+import MainRightSide from "./MainRightSide";
 
 function MainProductShow() {
   // state ------------
@@ -40,18 +40,7 @@ function MainProductShow() {
           </p>
         </div>
       </div>
-      <div className="process-item">
-        <div className="item-price">
-          <h2>{product[items].price}€</h2>
-        </div>
-        <div className="auth-info">
-          <h2>authentic product</h2>
-        </div>
-        <div className="auth-logo">
-          <GoVerified className="logo-auth" />
-        </div>
-        <div className="button-container"></div>
-      </div>
+      <MainRightSide price={product[items].price} />
     </MainProductShowStyled>
   );
 }
@@ -104,54 +93,6 @@ const MainProductShowStyled = styled.div`
         font-family: "Playfair Display", serif;
         font-size: 40px;
       }
-    }
-  }
-
-  .process-item {
-    height: 100%;
-    width: 50%;
-    border-top-right-radius: 20px;
-
-    .item-price {
-      height: 80px;
-      width: 100%;
-      border: 1px solid black;
-      border-top-right-radius: 20px;
-
-      h2 {
-        color: black;
-      }
-    }
-
-    .auth-info {
-      height: 80px;
-      width: 100%;
-      border: 1px solid black;
-
-      h2 {
-        color: black;
-      }
-    }
-
-    .auth-logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 275px;
-      width: 100%;
-      border: 1px solid black;
-
-      .logo-auth {
-        font-size: 97px;
-      }
-    }
-
-    .button-container {
-      height: 204px;
-      width: 100%;
-      border: 1px solid black;
-
-      border-bottom-right-radius: 20px;
     }
   }
 `;
