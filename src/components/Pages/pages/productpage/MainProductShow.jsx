@@ -59,19 +59,27 @@ function MainProductShow() {
 const MainProductShowStyled = styled.div`
   display: flex;
   flex-direction: row;
-  height: 90%;
+  height: 54%;
   width: 80%;
   background-color: white;
+  margin: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
   border: 1px solid black;
 
   .item-info {
     height: 100%;
     width: 50%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     border: 1px solid black;
     .item-name {
-      height: 80px;
+      height: 81px;
       width: 100%;
       border: 1px solid black;
+      border-top-left-radius: 20px;
 
       h2 {
         color: black;
@@ -81,6 +89,7 @@ const MainProductShowStyled = styled.div`
     .item-picture {
       height: 300px;
       width: 100%;
+      border: 1px solid black;
       img {
         height: 100%;
         width: 100%;
@@ -90,7 +99,6 @@ const MainProductShowStyled = styled.div`
     .item-desciption {
       height: 260px;
       width: 100%;
-      border: 1px solid red;
 
       h3 {
         font-family: "Playfair Display", serif;
@@ -102,12 +110,13 @@ const MainProductShowStyled = styled.div`
   .process-item {
     height: 100%;
     width: 50%;
-    border: 1px solid black;
+    border-top-right-radius: 20px;
 
     .item-price {
       height: 80px;
       width: 100%;
       border: 1px solid black;
+      border-top-right-radius: 20px;
 
       h2 {
         color: black;
@@ -128,7 +137,7 @@ const MainProductShowStyled = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 271px;
+      height: 275px;
       width: 100%;
       border: 1px solid black;
 
@@ -138,9 +147,11 @@ const MainProductShowStyled = styled.div`
     }
 
     .button-container {
-      height: 208px;
+      height: 204px;
       width: 100%;
-      border: 1px solid red;
+      border: 1px solid black;
+
+      border-bottom-right-radius: 20px;
     }
   }
 `;
