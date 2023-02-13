@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { GoVerified } from "react-icons/go";
 import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
 
 function MainRightSide({ price }) {
+  // state --------
+  const [nbSneaker, setNbSneakers] = useState(1);
+
+  // comportement --------
+  const handlechange = (event) => {
+    setNbSneakers(Number(event.target.value));
+  };
   return (
     <MainRightSideStyled>
       <div className="item-price">
@@ -21,7 +28,12 @@ function MainRightSide({ price }) {
             <h3>Quantity</h3>
           </label>
           <div className="input-style">
-            <input type="number" id="quantity" />
+            <input
+              type="number"
+              id="quantity"
+              value={nbSneaker}
+              onChange={handlechange}
+            />
           </div>
           <div className="button-container">
             <PrimaryButton label="Buy" className="button-mainproduct" />
@@ -104,7 +116,7 @@ const MainRightSideStyled = styled.div`
 
         input {
           height: 25px;
-          width: 50%;
+          width: 10%;
         }
       }
       .button-container {
