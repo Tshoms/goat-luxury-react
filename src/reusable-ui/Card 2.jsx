@@ -2,27 +2,29 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import PrimaryButton from "../reusable-ui/PrimaryButton";
 import { AiFillHeart } from "react-icons/ai";
-import { Link } from "react-router-dom";
-function Card({ id, name, image, price }) {
+
+function Card({ name, image, price }) {
   // state ------
   const [conteur, setConteur] = useState(0);
   // comportement --------
-  const handleClick = () => {};
+  const handleClick = () => {
+    // console.log("Conteur");
+    setConteur(conteur + 1);
+    console.log(conteur);
+  };
   return (
     <CardStyled>
       <div className="img-products">
         <img src={image} alt={name} />
       </div>
       <div className="title-products">{name}</div>
-      <Link to={{ pathname: `/produit/${id}` }}>
-        <div className="button-container">
-          <PrimaryButton
-            label="info"
-            className="button-card"
-            onClick={handleClick}
-          />
-        </div>
-      </Link>
+      <div className="button-container">
+        <PrimaryButton
+          label="buy"
+          className="button-card"
+          onClick={handleClick}
+        />
+      </div>
       <div className="price">
         <span>{price} $</span>
       </div>

@@ -17,6 +17,7 @@ const NavbarStyled = styled.div`
   display: flex;
   flex-direction: row;
   height: 70px;
+  width: 100%;
   background-color: white;
   /* border: 1px solid red; */
 `;

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import styled from "styled-components";
 import { sneakers } from "../../../../fakedata/ProductsData";
 import Card from "../../../../reusable-ui/Card";

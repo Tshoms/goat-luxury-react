@@ -1,18 +1,25 @@
 import React from "react";
 import styled from "styled-components";
+import Navbar from "../../../../reusable-ui/navbar/Navbar";
+import MainProductShow from "./mainproduct/MainProductShow";
 
 function ProductShowCase() {
   return (
     <ProductShowCaseStyled>
-      <h1>Hello Page produit !!!</h1>
+      <Navbar />
+      <MainProductShow />
     </ProductShowCaseStyled>
   );
 }
 
 const ProductShowCaseStyled = styled.div`
-  h1 {
-    color: black;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9d9d9;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default ProductShowCase;
