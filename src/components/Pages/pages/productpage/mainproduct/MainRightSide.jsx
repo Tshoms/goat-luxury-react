@@ -1,16 +1,34 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { GoVerified } from "react-icons/go";
 import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
-
+import { sneakers } from "../../../../../fakedata/ProductsData.jsx";
+import { addProduct } from "../../../../../redux/slice/cartSlice.jsx";
 function MainRightSide({ price }) {
   // state --------
+  const { id } = useParams();
+  const items = sneakers.find((item) => item.id === parseInt(id));
+
+  const cartState = useSelector((state) => state.cart);
+  console.log(cartState);
+
   const [nbSneaker, setNbSneakers] = useState(1);
+  const dispatch = useDispatch();
 
   // comportement --------
+  const handleclick = (itemsValue = items) => {
+    dispatch(addProduct(itemsValue));
+    console.log(itemsValue);
+  };
+
+  console.log(cartState);
+
   const handlechange = (event) => {
     setNbSneakers(Number(event.target.value));
   };
+
   return (
     <MainRightSideStyled>
       <div className="item-price">
@@ -36,7 +54,11 @@ function MainRightSide({ price }) {
             />
           </div>
           <div className="button-container">
-            <PrimaryButton label="Buy" className="button-mainproduct" />
+            <PrimaryButton
+              label="Buy"
+              className="button-mainproduct"
+              onClick={handleclick}
+            />
           </div>
         </form>
       </div>
