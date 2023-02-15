@@ -14,7 +14,6 @@ function MainProductShow() {
   const items = product.findIndex((item) => {
     return item.id === parseInt(id);
   });
-  console.log(items);
 
   // comportement  ------------
 

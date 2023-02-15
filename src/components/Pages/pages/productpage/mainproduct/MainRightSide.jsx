@@ -11,18 +11,26 @@ function MainRightSide({ price }) {
   const { id } = useParams();
   const items = sneakers.find((item) => item.id === parseInt(id));
 
-  const cartState = useSelector((state) => state.cart);
-  console.log(cartState);
-
-  const [nbSneaker, setNbSneakers] = useState(1);
-  const dispatch = useDispatch();
-
-  // comportement --------
-  const handleclick = (itemsValue = items) => {
-    dispatch(addProduct(itemsValue));
-    console.log(itemsValue);
+  const initialState = {
+    id: items.id,
+    name: items.name,
+    price: items.price,
   };
 
+  const [newData, setNewData] = useState(initialState);
+  const dispatch = useDispatch();
+
+  console.log(newData);
+
+  const [nbSneaker, setNbSneakers] = useState(1);
+
+  // comportement --------
+  const handleclick = (e) => {
+    e.preventDefault();
+    dispatch(addProduct(newData));
+  };
+
+  const cartState = useSelector((state) => state.cartItems);
   console.log(cartState);
 
   const handlechange = (event) => {

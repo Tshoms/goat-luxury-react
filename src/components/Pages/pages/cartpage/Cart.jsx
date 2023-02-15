@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 function Cart() {
   // state ------
-  const cartState = useSelector((state) => state.cart);
+  const cartState = useSelector((state) => state.cartItems.cartItems);
   console.log(cartState);
   return (
     <CartStyled>
