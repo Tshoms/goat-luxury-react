@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { sneakers } from "../../../../../fakedata/ProductsData";
 import styled from "styled-components";
@@ -14,7 +14,6 @@ function MainProductShow() {
   const items = product.findIndex((item) => {
     return item.id === parseInt(id);
   });
-  console.log(items);
 
   // comportement  ------------
 

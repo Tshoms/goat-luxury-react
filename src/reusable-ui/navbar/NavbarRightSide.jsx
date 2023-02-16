@@ -3,13 +3,16 @@ import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import Profile from "../Profile";
+import { Link } from "react-router-dom";
 
 function NavbarRightSide({ userName }) {
   return (
     <NavbarRightSideStyled>
       <Profile userName={userName} />
       <div className="cartlogo">
-        <FiShoppingCart className="icon" />
+        <Link to={{ pathname: "/panier" }}>
+          <FiShoppingCart className="icon" />
+        </Link>
         <span>0</span>
       </div>
       <div className="heartlogo">
