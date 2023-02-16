@@ -15,6 +15,7 @@ function MainRightSide({ price }) {
     id: items.id,
     name: items.name,
     price: items.price,
+    image: items.image,
   };
 
   const [newData, setNewData] = useState(initialState);

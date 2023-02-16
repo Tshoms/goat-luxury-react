@@ -13,6 +13,7 @@ export const cartSlice = createSlice({
         id: action.payload.id,
         name: action.payload.name,
         price: action.payload.price,
+        image: action.payload.image,
       };
 
       state.cartItems.push(newItem);
