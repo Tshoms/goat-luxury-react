@@ -1,6 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { GoPackage } from "react-icons/go";
+import { TbTruckDelivery } from "react-icons/tb";
+import { SlPlane } from "react-icons/sl";
+import { Ri24HoursLine } from "react-icons/ri";
+import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 
 function Cart() {
   // state ------
@@ -8,23 +13,48 @@ function Cart() {
   console.log(cartState);
   return (
     <CartStyled>
-      <h1>Hello Cart page !!!</h1>
-      <div className="cart-items">
-        {cartState.map((item) => {
-          return (
-            <div className="item">
-              <div className="picture-product">
-                <img src={item.image} alt="" />
+      <h1>The Goat Luxury</h1>
+      <div className="container">
+        <div className="cart-items">
+          {cartState.map((item) => {
+            return (
+              <div className="item">
+                <div className="picture-product">
+                  <img src={item.image} alt="" />
+                </div>
+                <div className="name-product">
+                  <p>{item.name}</p>
+                </div>
+                <div className="price-product">
+                  <p>{item.price} €</p>
+                </div>
+                <div className="button-delete">
+                  <p>X</p>
+                </div>
               </div>
-              <div className="name-product">
-                <p>{item.name}</p>
-              </div>
-              <div className="price-product">
-                <p>{item.price} €</p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        <div className="subtotal-div">
+          <div className="delivery-title">
+            <h3>Delivery in </h3>
+            <Ri24HoursLine className="icon-hours" />
+          </div>
+          <div className="delivery-div">
+            <SlPlane className="icon" />
+            <TbTruckDelivery className="icon" />
+            <GoPackage className="icon" />
+          </div>
+          <div className="subtotal-p">
+            <h3>Subtotal</h3>
+          </div>
+          <div className="subtotal-price">
+            <h3>0.00 €</h3>
+          </div>
+          <div className="button">
+            <PrimaryButton className="button-style" label="BUY" />
+          </div>
+        </div>
       </div>
     </CartStyled>
   );
@@ -41,61 +71,177 @@ const CartStyled = styled.div`
   h1 {
     color: black;
   }
-  .cart-items {
+
+  .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: auto;
+    flex-direction: row;
+    height: 600px;
     width: 80%;
-    border: 1px solid red;
 
-    .item {
+    .cart-items {
       display: flex;
-      flex-direction: row;
-      height: 95px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
       width: 50%;
-      background-color: #ece9e9;
-      border-radius: 10px;
-      margin-bottom: 15px;
+      border: 3px solid black;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
 
-      .picture-product {
+      overflow-y: scroll;
+
+      .item {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        width: 45%;
+        flex-direction: row;
+        height: 125px;
+        width: 80%;
+        background-color: #ece9e9;
+        border-radius: 10px;
+        margin-bottom: 15px;
 
-        img {
-          height: 90%;
-          width: 70%;
-          border-radius: 10px;
+        .picture-product {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 45%;
+
+          img {
+            height: 90%;
+            width: 70%;
+            border-radius: 10px;
+          }
+        }
+
+        .name-product {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 30%;
+
+          p {
+            font-size: 17px;
+            font-family: "Playfair Display", serif;
+          }
+        }
+
+        .price-product {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 25%;
+
+          p {
+            font-size: 20px;
+            font-family: "Playfair Display", serif;
+          }
+        }
+        .button-delete {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 10%;
+          background-color: red;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+
+          p {
+            color: white;
+          }
+        }
+      }
+    }
+
+    .subtotal-div {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 50%;
+      border: 3px solid black;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      .delivery-title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 20%;
+        width: 100%;
+        padding-left: 120px;
+
+        h3 {
+          font-size: 40px;
+          font-family: "Playfair Display", serif;
+        }
+
+        .icon-hours {
+          font-size: 50px;
+          margin-left: 5px;
         }
       }
 
-      .name-product {
+      .delivery-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 30%;
+        width: 100%;
+        border: 1px solid black;
+
+        .icon {
+          color: black;
+          font-size: 55px;
+        }
+      }
+
+      .subtotal-p {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
-        width: 30%;
+        height: 15%;
+        width: 100%;
+        background-color: black;
 
-        p {
-          font-size: 17px;
+        h3 {
+          color: white;
+          font-size: 40px;
           font-family: "Playfair Display", serif;
         }
       }
 
-      .price-product {
+      .subtotal-price {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
-        width: 25%;
+        height: 15%;
+        width: 100%;
 
-        p {
-          font-size: 20px;
+        h3 {
+          color: black;
+          font-size: 40px;
           font-family: "Playfair Display", serif;
+        }
+      }
+      .button {
+        height: 20%;
+        width: 100%;
+        .button-style {
+          height: 100%;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          background-color: green;
+          padding: 12px;
+
+          :hover {
+            background-color: white;
+            border: 4px solid green;
+          }
         }
       }
     }
