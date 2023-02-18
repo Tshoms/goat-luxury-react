@@ -1,16 +1,29 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { GoPackage } from "react-icons/go";
-import { TbTruckDelivery } from "react-icons/tb";
+import { MdOutlineDeliveryDining } from "react-icons/md";
 import { SlPlane } from "react-icons/sl";
 import { Ri24HoursLine } from "react-icons/ri";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
+import { deleteProduct } from "../../../../redux/slice/cartSlice";
 
 function Cart() {
   // state ------
   const cartState = useSelector((state) => state.cartItems.cartItems);
   console.log(cartState);
+
+  const [newState, setNewState] = useState(cartState);
+
+  const dispatch = useDispatch();
+
+  // comportement ------
+  const handledelete = (e) => {
+    e.preventDefault();
+    dispatch(deleteProduct(newState));
+    console.log(newState);
+  };
+
   return (
     <CartStyled>
       <h1>The Goat Luxury</h1>
@@ -29,7 +42,7 @@ function Cart() {
                   <p>{item.price} €</p>
                 </div>
                 <div className="button-delete">
-                  <p>X</p>
+                  <button onClick={handledelete} label="X" />
                 </div>
               </div>
             );
@@ -39,10 +52,11 @@ function Cart() {
           <div className="delivery-title">
             <h3>Delivery in </h3>
             <Ri24HoursLine className="icon-hours" />
+            <h3>hours </h3>
           </div>
           <div className="delivery-div">
             <SlPlane className="icon" />
-            <TbTruckDelivery className="icon" />
+            <MdOutlineDeliveryDining className="icon" />
             <GoPackage className="icon" />
           </div>
           <div className="subtotal-p">
@@ -145,9 +159,17 @@ const CartStyled = styled.div`
           align-items: center;
           height: 100%;
           width: 10%;
-          background-color: red;
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
+
+          button {
+            height: 100%;
+            width: 100%;
+            background-color: red;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border: none;
+          }
 
           p {
             color: white;
@@ -171,7 +193,7 @@ const CartStyled = styled.div`
         align-items: center;
         height: 20%;
         width: 100%;
-        padding-left: 120px;
+        padding-left: 75px;
 
         h3 {
           font-size: 40px;
@@ -181,6 +203,7 @@ const CartStyled = styled.div`
         .icon-hours {
           font-size: 50px;
           margin-left: 5px;
+          margin-right: 5px;
         }
       }
 
@@ -195,7 +218,7 @@ const CartStyled = styled.div`
 
         .icon {
           color: black;
-          font-size: 55px;
+          font-size: 65px;
         }
       }
 

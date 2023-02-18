@@ -17,11 +17,17 @@ export const cartSlice = createSlice({
       };
 
       state.cartItems.push(newItem);
-      /*state.cartItems.push(action.payload);*/
+    },
+    deleteProduct: (state, action) => {
+      const id = { id: action.payload.id };
+      state.cartItems.find((item) => item.id === id);
+      state.cartItems.pop(id);
+      console.log(state.cartItems);
     },
   },
 });
 
 // export Actions and Reducer -----------
 export const { addProduct } = cartSlice.actions;
+export const { deleteProduct } = cartSlice.actions;
 export default cartSlice.reducer;
