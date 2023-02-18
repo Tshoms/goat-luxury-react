@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { deleteProduct } from "../../../../redux/slice/cartSlice";
 import Subtotal from "./Subtotal";
+import ItemCart from "./ItemCart";
 
 function Cart() {
   // state ------
@@ -27,22 +28,12 @@ function Cart() {
         <div className="cart-items">
           {cartState.map((item) => {
             return (
-              <div className="item">
-                <div className="picture-product">
-                  <img src={item.image} alt="" />
-                </div>
-                <div className="name-product">
-                  <p>{item.name}</p>
-                </div>
-                <div className="price-product">
-                  <p>{item.price} €</p>
-                </div>
-                <div className="button-delete">
-                  <button onClick={handledelete}>
-                    <p>X</p>
-                  </button>
-                </div>
-              </div>
+              <ItemCart
+                name={item.name}
+                price={item.price}
+                image={item.image}
+                onClick={handledelete}
+              />
             );
           })}
         </div>
@@ -82,83 +73,6 @@ const CartStyled = styled.div`
       border-bottom-left-radius: 10px;
 
       overflow-y: scroll;
-
-      .item {
-        display: flex;
-        flex-direction: row;
-        height: 125px;
-        width: 80%;
-        background-color: #ece9e9;
-        border-radius: 10px;
-        margin-bottom: 15px;
-
-        .picture-product {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          width: 45%;
-
-          img {
-            height: 90%;
-            width: 70%;
-            border-radius: 10px;
-          }
-        }
-
-        .name-product {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          width: 30%;
-
-          p {
-            font-size: 17px;
-            font-family: "Playfair Display", serif;
-          }
-        }
-
-        .price-product {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          width: 25%;
-
-          p {
-            font-size: 20px;
-            font-family: "Playfair Display", serif;
-          }
-        }
-        .button-delete {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          width: 10%;
-          border-top-right-radius: 10px;
-          border-bottom-right-radius: 10px;
-
-          button {
-            height: 100%;
-            width: 100%;
-            background-color: red;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            border: none;
-
-            p {
-              font-size: 15px;
-              color: white;
-            }
-          }
-
-          p {
-            color: white;
-          }
-        }
-      }
     }
   }
 `;
