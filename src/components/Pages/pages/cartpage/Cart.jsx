@@ -42,7 +42,9 @@ function Cart() {
                   <p>{item.price} €</p>
                 </div>
                 <div className="button-delete">
-                  <button onClick={handledelete} label="X" />
+                  <button onClick={handledelete}>
+                    <p>X</p>
+                  </button>
                 </div>
               </div>
             );
@@ -169,6 +171,11 @@ const CartStyled = styled.div`
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
             border: none;
+
+            p {
+              font-size: 15px;
+              color: white;
+            }
           }
 
           p {
