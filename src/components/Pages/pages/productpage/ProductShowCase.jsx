@@ -1,12 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Navbar from "../../../../reusable-ui/navbar/Navbar";
 import MainProductShow from "./mainproduct/MainProductShow";
 
 function ProductShowCase() {
+  // state -------
+  const arrayCart = useSelector((state) => state.cartItems.cartItems);
+
+  const notifCart = arrayCart.length;
   return (
     <ProductShowCaseStyled>
-      <Navbar />
+      <Navbar notifCart={notifCart} />
       <MainProductShow />
     </ProductShowCaseStyled>
   );
