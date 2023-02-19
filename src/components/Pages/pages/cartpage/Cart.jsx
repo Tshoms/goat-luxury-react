@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { deleteProduct } from "../../../../redux/slice/cartSlice";
+import {
+  deleteProduct,
+  getLocalStorageData,
+} from "../../../../redux/slice/cartSlice";
 import Subtotal from "./Subtotal";
 import ItemCart from "./ItemCart";
 
@@ -9,13 +12,19 @@ function Cart() {
   // state ------
   const cartState = useSelector((state) => state.cartItems.cartItems);
   console.log(cartState);
+  const dispatch = useDispatch();
 
   const [newState, setNewState] = useState(cartState);
 
-  const dispatch = useDispatch();
-
   const arrayPrice = cartState.map((item) => item.price);
   const totalPrice = arrayPrice.reduce((a, b) => a + b, 0);
+
+  // localStorage -----------
+  useEffect(() => {
+    if (localStorage.getItem("itemData")) {
+      dispatch(getLocalStorageData());
+    }
+  }, []);
 
   // comportement ------
   const handledelete = (e) => {
