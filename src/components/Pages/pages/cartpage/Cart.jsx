@@ -14,6 +14,9 @@ function Cart() {
 
   const dispatch = useDispatch();
 
+  const arrayPrice = cartState.map((item) => item.price);
+  const totalPrice = arrayPrice.reduce((a, b) => a + b, 0);
+
   // comportement ------
   const handledelete = (e) => {
     e.preventDefault();
@@ -37,7 +40,7 @@ function Cart() {
             );
           })}
         </div>
-        <Subtotal />
+        <Subtotal totalPrice={totalPrice} />
       </div>
     </CartStyled>
   );

@@ -6,7 +6,7 @@ import { SlPlane } from "react-icons/sl";
 import { Ri24HoursLine } from "react-icons/ri";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 
-function Subtotal() {
+function Subtotal({ totalPrice }) {
   return (
     <SubtotalStyled>
       <div className="delivery-title">
@@ -23,7 +23,7 @@ function Subtotal() {
         <h3>Subtotal</h3>
       </div>
       <div className="subtotal-price">
-        <h3>0.00 €</h3>
+        <h3>{totalPrice} €</h3>
       </div>
       <div className="button">
         <PrimaryButton className="button-style" label="BUY" />
