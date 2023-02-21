@@ -36,7 +36,7 @@ const SubtotalStyled = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 50%;
+  width: 40%;
   border: 3px solid black;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -47,7 +47,7 @@ const SubtotalStyled = styled.div`
     align-items: center;
     height: 20%;
     width: 100%;
-    padding-left: 75px;
+    padding-left: 20px;
 
     h3 {
       font-size: 40px;

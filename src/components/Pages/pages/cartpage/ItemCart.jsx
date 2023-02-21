@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { TbCircleMinus, TbCirclePlus } from "react-icons/tb";
 
 function ItemCart({ name, price, image, onClick }) {
+  // state --------
+  const [qty, setQty] = useState(1);
+
+  // comportement -------
+
+  const addQty = (e) => {
+    e.preventDefault();
+    setQty(qty + 1);
+  };
+
+  const lowQty = (e) => {
+    e.preventDefault();
+    setQty(qty - 1);
+  };
   return (
     <ItemStyled>
       <div className="picture-product">
@@ -9,6 +24,16 @@ function ItemCart({ name, price, image, onClick }) {
       </div>
       <div className="name-product">
         <p>{name}</p>
+      </div>
+      <div className="qty">
+        <div className="qty-title">
+          <p>Qty</p>
+        </div>
+        <div className="qty-button">
+          <TbCircleMinus className="icon" onClick={lowQty} />
+          <span>{qty}</span>
+          <TbCirclePlus className="icon" onClick={addQty} />
+        </div>
       </div>
       <div className="price-product">
         <p>{price} €</p>
@@ -26,7 +51,7 @@ const ItemStyled = styled.div`
   display: flex;
   flex-direction: row;
   height: 125px;
-  width: 80%;
+  width: 95%;
   background-color: #ece9e9;
   border-radius: 10px;
   margin-bottom: 15px;
@@ -36,11 +61,12 @@ const ItemStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 45%;
+    width: 25%;
+    /* border: 1px solid black; */
 
     img {
       height: 90%;
-      width: 70%;
+      width: 95%;
       border-radius: 10px;
     }
   }
@@ -50,11 +76,47 @@ const ItemStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 30%;
+    width: 20%;
 
     p {
       font-size: 17px;
       font-family: "Playfair Display", serif;
+    }
+  }
+
+  .qty {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+    /* border: 1px solid black; */
+
+    .qty-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50%;
+      width: 100%;
+    }
+
+    .qty-button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      height: 50%;
+      width: 100%;
+
+      .icon {
+        font-size: 35px;
+        color: black;
+      }
+
+      span {
+        font-size: 30px;
+        margin: 10px;
+      }
     }
   }
 

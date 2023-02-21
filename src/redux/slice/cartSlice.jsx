@@ -11,9 +11,14 @@ const updateLocalStorage = (newItemArray) => {
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
+
   reducers: {
     getLocalStorageData: (state) => {
       state.cartItems = JSON.parse(localStorage.getItem("itemData"));
+    },
+    getQuantity: (state, action) => {
+      const newQty = { quantity: action.payload.quantity };
+      state.quantity = newQty;
     },
     addProduct: (state, action) => {
       const newItem = {
@@ -22,10 +27,11 @@ export const cartSlice = createSlice({
         price: action.payload.price,
         image: action.payload.image,
       };
-
+      console.log(newItem);
       state.cartItems.push(newItem);
       updateLocalStorage(state.cartItems);
     },
+
     deleteProduct: (state, action) => {
       const id = { id: action.payload.id };
       state.cartItems.find((item) => item.id === id);

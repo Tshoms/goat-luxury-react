@@ -79,7 +79,7 @@ const CartStyled = styled.div`
       align-items: center;
       flex-direction: column;
       height: 100%;
-      width: 50%;
+      width: 60%;
       border: 3px solid black;
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
