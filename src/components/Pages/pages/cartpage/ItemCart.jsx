@@ -1,22 +1,37 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { TbCircleMinus, TbCirclePlus } from "react-icons/tb";
+import { useDispatch } from "react-redux";
+import { getQuantity } from "../../../../redux/slice/cartSlice";
 
 function ItemCart({ name, price, image, onClick }) {
   // state --------
   const [qty, setQty] = useState(1);
+
+  const totalPriceItem = qty * price;
+  console.log(totalPriceItem);
+
+  const initialState = {
+    price: totalPriceItem,
+  };
+  console.log(initialState);
+
+  const dispatch = useDispatch();
 
   // comportement -------
 
   const addQty = (e) => {
     e.preventDefault();
     setQty(qty + 1);
+    console.log(qty);
+    dispatch(getQuantity(initialState));
   };
 
   const lowQty = (e) => {
     e.preventDefault();
     setQty(qty - 1);
   };
+
   return (
     <ItemStyled>
       <div className="picture-product">
@@ -36,7 +51,7 @@ function ItemCart({ name, price, image, onClick }) {
         </div>
       </div>
       <div className="price-product">
-        <p>{price} €</p>
+        <p>{totalPriceItem} €</p>
       </div>
       <div className="button-delete">
         <button onClick={onClick}>

@@ -5,8 +5,15 @@ import { MdOutlineDeliveryDining } from "react-icons/md";
 import { SlPlane } from "react-icons/sl";
 import { Ri24HoursLine } from "react-icons/ri";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
+import { useSelector } from "react-redux";
 
 function Subtotal({ totalPrice }) {
+  const newprice = useSelector((state) => state.cartItems.totalQtyPrice);
+  console.log(newprice);
+
+  const arrayPrice = newprice.map((item) => item.price);
+  console.log(arrayPrice);
+
   return (
     <SubtotalStyled>
       <div className="delivery-title">

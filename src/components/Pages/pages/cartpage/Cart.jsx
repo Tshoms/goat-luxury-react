@@ -1,56 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import styled from "styled-components";
-import {
-  deleteProduct,
-  getLocalStorageData,
-} from "../../../../redux/slice/cartSlice";
-import Subtotal from "./Subtotal";
-import ItemCart from "./ItemCart";
+import MainCart from "./MainCart";
 
 function Cart() {
-  // state ------
-  const cartState = useSelector((state) => state.cartItems.cartItems);
-  console.log(cartState);
-  const dispatch = useDispatch();
-
-  const [newState, setNewState] = useState(cartState);
-
-  const arrayPrice = cartState.map((item) => item.price);
-  const totalPrice = arrayPrice.reduce((a, b) => a + b, 0);
-
-  // localStorage -----------
-  useEffect(() => {
-    if (localStorage.getItem("itemData")) {
-      dispatch(getLocalStorageData());
-    }
-  }, []);
-
-  // comportement ------
-  const handledelete = (e) => {
-    e.preventDefault();
-    dispatch(deleteProduct(newState));
-    console.log(newState);
-  };
-
   return (
     <CartStyled>
       <h1>The Goat Luxury</h1>
-      <div className="container">
-        <div className="cart-items">
-          {cartState.map((item) => {
-            return (
-              <ItemCart
-                name={item.name}
-                price={item.price}
-                image={item.image}
-                onClick={handledelete}
-              />
-            );
-          })}
-        </div>
-        <Subtotal totalPrice={totalPrice} />
-      </div>
+      <MainCart />
     </CartStyled>
   );
 }
@@ -72,6 +28,7 @@ const CartStyled = styled.div`
     flex-direction: row;
     height: 600px;
     width: 80%;
+    border: 1px solid red;
 
     .cart-items {
       display: flex;
