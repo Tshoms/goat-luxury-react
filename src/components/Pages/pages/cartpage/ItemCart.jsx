@@ -1,30 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { TbCircleMinus, TbCirclePlus } from "react-icons/tb";
-import { useDispatch } from "react-redux";
-import { getQuantity } from "../../../../redux/slice/cartSlice";
 
-function ItemCart({ name, price, image, onClick }) {
+function ItemCart({ id, name, price, image, onClick }) {
   // state --------
   const [qty, setQty] = useState(1);
-
   const totalPriceItem = qty * price;
-  console.log(totalPriceItem);
-
-  const initialState = {
-    price: totalPriceItem,
-  };
-  console.log(initialState);
-
-  const dispatch = useDispatch();
-
   // comportement -------
 
   const addQty = (e) => {
     e.preventDefault();
     setQty(qty + 1);
     console.log(qty);
-    dispatch(getQuantity(initialState));
+    // dispatch(getQuantity(initialState));
   };
 
   const lowQty = (e) => {
@@ -33,7 +21,7 @@ function ItemCart({ name, price, image, onClick }) {
   };
 
   return (
-    <ItemStyled>
+    <ItemStyled key={id}>
       <div className="picture-product">
         <img src={image} alt="" />
       </div>
@@ -91,7 +79,7 @@ const ItemStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 20%;
+    width: 35%;
 
     p {
       font-size: 17px;
@@ -100,7 +88,7 @@ const ItemStyled = styled.div`
   }
 
   .qty {
-    display: flex;
+    display: none;
     flex-direction: column;
     height: 100%;
     width: 30%;
@@ -140,7 +128,7 @@ const ItemStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 25%;
+    width: 40%;
 
     p {
       font-size: 20px;

@@ -9,7 +9,7 @@ function ProductShowCase() {
   // state -------
   const arrayCart = useSelector((state) => state.cartItems.cartItems);
 
-  // localStorage -----------
+  // localStorage / notif cart -----------
   const dispatch = useDispatch();
   useEffect(() => {
     if (localStorage.getItem("itemData")) {

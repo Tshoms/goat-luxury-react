@@ -8,11 +8,8 @@ import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import { useSelector } from "react-redux";
 
 function Subtotal({ totalPrice }) {
-  const newprice = useSelector((state) => state.cartItems.totalQtyPrice);
+  const newprice = useSelector((state) => state.cartItems.cartItems);
   console.log(newprice);
-
-  const arrayPrice = newprice.map((item) => item.price);
-  console.log(arrayPrice);
 
   return (
     <SubtotalStyled>

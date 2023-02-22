@@ -24,6 +24,7 @@ export const cartSlice = createSlice({
         name: action.payload.name,
         price: action.payload.price,
         image: action.payload.image,
+        newprice: action.payload.newprice,
       };
       console.log(newItem);
       state.cartItems.push(newItem);

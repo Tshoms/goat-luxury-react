@@ -10,9 +10,14 @@ function MainRightSide({ price }) {
   // state --------
   const { id } = useParams();
   const items = sneakers.find((item) => item.id === parseInt(id));
-
+  // qty --------------
   const [nbSneaker, setNbSneakers] = useState(1);
-  console.log(nbSneaker);
+  const qty = nbSneaker;
+  console.log(qty);
+  const itemPrice = items.price;
+  console.log(itemPrice);
+  const newPrice = qty * itemPrice;
+  console.log(newPrice);
 
   const initialState = {
     id: items.id,
@@ -21,6 +26,9 @@ function MainRightSide({ price }) {
     image: items.image,
   };
 
+  initialState.newprice = newPrice;
+  console.log(initialState);
+  //----------------------
   const [newData, setNewData] = useState(initialState);
   console.log(newData);
   const dispatch = useDispatch();
@@ -41,7 +49,7 @@ function MainRightSide({ price }) {
   return (
     <MainRightSideStyled>
       <div className="item-price">
-        <h2> Price : {price}€</h2>
+        <h2> unitaire : {price}€</h2>
       </div>
       <div className="auth-info">
         <h2>authentic product</h2>
@@ -52,7 +60,7 @@ function MainRightSide({ price }) {
       <div className="button-container">
         <form>
           <label htmlFor="quantity">
-            <h3>Quantity</h3>
+            <h3>add to cart</h3>
           </label>
           <div className="input-style">
             <input
@@ -64,7 +72,7 @@ function MainRightSide({ price }) {
           </div>
           <div className="button-container">
             <PrimaryButton
-              label="Buy"
+              label="add"
               className="button-mainproduct"
               onClick={handleclick}
             />
@@ -138,7 +146,7 @@ const MainRightSideStyled = styled.div`
       }
 
       .input-style {
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         height: 25%;
@@ -151,11 +159,12 @@ const MainRightSideStyled = styled.div`
         }
       }
       .button-container {
-        height: 50%;
+        height: 100%;
         width: 100%;
+        /* border: 1px solid red; */
 
         .button-mainproduct {
-          padding: 42px;
+          padding: 71px;
           border-radius: 0px;
           border-bottom-right-radius: 20px;
 

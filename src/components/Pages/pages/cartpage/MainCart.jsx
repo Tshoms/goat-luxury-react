@@ -13,15 +13,20 @@ function MainCart() {
   const cartState = useSelector((state) => state.cartItems.cartItems);
   console.log(cartState);
   const dispatch = useDispatch();
-
   const [newState, setNewState] = useState(cartState);
 
-  const arrayPrice = cartState.map((item) => item.price);
+  //--------------
+  const arrayPrice = cartState.map((item) => item.newprice);
+  console.log(arrayPrice);
+  //--------------
+  const [qty, setQty] = useState(1);
+  const totalPriceItem = qty * arrayPrice;
+
+  //--------------
   const totalPrice = arrayPrice.reduce((a, b) => a + b, 0);
   console.log(totalPrice);
 
-  const qtyPrice = useSelector((state) => state.cartItems.totalQtyPrice);
-  console.log(qtyPrice);
+  //--------------
 
   // localStorage -----------
   useEffect(() => {
@@ -31,6 +36,7 @@ function MainCart() {
   }, []);
 
   // comportement ------
+
   const handledelete = (e) => {
     e.preventDefault();
     dispatch(deleteProduct(newState));
@@ -44,7 +50,7 @@ function MainCart() {
             <ItemCart
               id={item.id}
               name={item.name}
-              price={item.price}
+              price={item.newprice}
               image={item.image}
               totalPrice={totalPrice}
               onClick={handledelete}
@@ -52,7 +58,7 @@ function MainCart() {
           );
         })}
       </div>
-      <Subtotal totalPrice={totalPrice} />
+      <Subtotal totalPrice={totalPrice} qty={qty} arrayPrice={arrayPrice} />
     </MainCartStyled>
   );
 }
