@@ -42,6 +42,7 @@ function MainRightSide({ price }) {
   const handleclick = (e) => {
     e.preventDefault();
     dispatch(addProduct(newData));
+    setNewData(newData);
     toast.success("ajouter au panier !");
   };
 

@@ -41,6 +41,7 @@ function MainCart() {
   const handledelete = (e) => {
     e.preventDefault();
     dispatch(deleteProduct(newState));
+    setNewState(newState);
     toast.error("supprimer 🗑!");
     console.log(newState);
   };

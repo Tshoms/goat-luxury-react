@@ -4,6 +4,9 @@ import NavbarLeftSide from "./NavbarLeftSide";
 import NavbarRightSide from "./NavbarRightSide";
 
 function Navbar({ userName, notifCart }) {
+  // getName -----
+
+  // -------------
   return (
     <NavbarStyled>
       <NavbarLeftSide />

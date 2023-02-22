@@ -12,7 +12,6 @@ function LoginForm() {
   const navigate = useNavigate();
 
   // comportement -------
-
   const handleChange = (event) => {
     setUserName(event.target.value);
   };

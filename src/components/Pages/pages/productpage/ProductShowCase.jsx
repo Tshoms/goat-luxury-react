@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { getLocalStorageData } from "../../../../redux/slice/cartSlice";
-import Navbar from "../../../../reusable-ui/navbar/Navbar";
+// import Navbar from "../../../../reusable-ui/navbar/Navbar";
 import MainProductShow from "./mainproduct/MainProductShow";
 
 function ProductShowCase() {
@@ -20,7 +20,7 @@ function ProductShowCase() {
   const notifCart = arrayCart.length;
   return (
     <ProductShowCaseStyled>
-      <Navbar notifCart={notifCart} />
+      {/* <Navbar notifCart={notifCart} /> */}
       <MainProductShow />
     </ProductShowCaseStyled>
   );
