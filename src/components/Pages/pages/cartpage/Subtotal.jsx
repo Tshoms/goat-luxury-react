@@ -6,10 +6,13 @@ import { SlPlane } from "react-icons/sl";
 import { Ri24HoursLine } from "react-icons/ri";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Subtotal({ totalPrice }) {
+  // state -----------
   const newprice = useSelector((state) => state.cartItems.cartItems);
   console.log(newprice);
+  // comportement ----------
 
   return (
     <SubtotalStyled>
@@ -29,8 +32,11 @@ function Subtotal({ totalPrice }) {
       <div className="subtotal-price">
         <h3>{totalPrice} €</h3>
       </div>
+
       <div className="button">
-        <PrimaryButton className="button-style" label="BUY" />
+        <Link to={{ pathname: `/payment/${totalPrice}` }}>
+          <PrimaryButton className="button-style" label="BUY" />
+        </Link>
       </div>
     </SubtotalStyled>
   );
