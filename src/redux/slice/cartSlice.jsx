@@ -47,6 +47,7 @@ export const cartSlice = createSlice({
       console.log(state.cartItems);
     },
     getName: (state, action) => {
+      // don't use ---
       const name = { name: action.payload.name };
       console.log(name);
       state.nameUser.push(name);
