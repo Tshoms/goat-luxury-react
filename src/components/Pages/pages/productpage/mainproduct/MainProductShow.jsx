@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 import { useParams } from "react-router-dom";
 import { sneakers } from "../../../../../fakedata/ProductsData";
 import styled from "styled-components";
@@ -31,7 +31,7 @@ const MainProductShowStyled = styled.div`
   height: 54%;
   width: 80%;
   background-color: white;
-  margin: 30px;
+  margin: 40px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;

@@ -3,12 +3,15 @@ import styled from "styled-components";
 import NavbarLeftSide from "./NavbarLeftSide";
 import NavbarRightSide from "./NavbarRightSide";
 
-function Navbar({ userName }) {
+function Navbar({ userName, notifCart }) {
+  // getName -----
+
+  // -------------
   return (
     <NavbarStyled>
       <NavbarLeftSide />
 
-      <NavbarRightSide userName={userName} />
+      <NavbarRightSide userName={userName} notifCart={notifCart} />
     </NavbarStyled>
   );
 }

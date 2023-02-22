@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
-import Navbar from "../../../../reusable-ui/navbar/Navbar";
+import { getLocalStorageData } from "../../../../redux/slice/cartSlice";
+// import Navbar from "../../../../reusable-ui/navbar/Navbar";
 import MainProductShow from "./mainproduct/MainProductShow";
 
 function ProductShowCase() {
+  // state -------
+  const arrayCart = useSelector((state) => state.cartItems.cartItems);
+
+  // localStorage / notif cart -----------
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (localStorage.getItem("itemData")) {
+      dispatch(getLocalStorageData());
+    }
+  }, []);
+
+  const notifCart = arrayCart.length;
   return (
     <ProductShowCaseStyled>
-      <Navbar />
+      {/* <Navbar notifCart={notifCart} /> */}
       <MainProductShow />
     </ProductShowCaseStyled>
   );
