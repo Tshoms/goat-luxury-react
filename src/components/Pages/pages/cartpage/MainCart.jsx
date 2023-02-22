@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Subtotal from "./Subtotal";
@@ -40,6 +41,7 @@ function MainCart() {
   const handledelete = (e) => {
     e.preventDefault();
     dispatch(deleteProduct(newState));
+    toast.error("supprimer 🗑!");
     console.log(newState);
   };
   return (

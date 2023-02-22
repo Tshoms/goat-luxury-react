@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import styled from "styled-components";
 import { createSearchParams, useNavigate } from "react-router-dom";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
@@ -25,6 +26,7 @@ function LoginForm() {
         userName: userName,
       }).toString(),
     });
+    toast.success("content de te revoir 👋 !");
     setUserName("");
   };
 

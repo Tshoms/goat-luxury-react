@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -41,6 +42,7 @@ function MainRightSide({ price }) {
   const handleclick = (e) => {
     e.preventDefault();
     dispatch(addProduct(newData));
+    toast.success("ajouter au panier !");
   };
 
   const cartState = useSelector((state) => state.cartItems);
@@ -174,6 +176,22 @@ const MainRightSideStyled = styled.div`
         }
       }
     }
+  }
+
+  .Toastify__toast {
+    text-decoration: none;
+  }
+
+  .Toastify__toast-theme--colored.Toastify__toast--success {
+    color: white;
+    background-color: green;
+    border-color: green;
+  }
+
+  .Toastify__toast-theme--colored.Toastify__toast--error {
+    color: white;
+    background-color: red;
+    border-color: red;
   }
 `;
 
