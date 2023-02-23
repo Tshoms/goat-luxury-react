@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+
 import styled from "styled-components";
 import { GoVerified } from "react-icons/go";
 import Loading from "./Loading";
+import { useSearchParams } from "react-router-dom";
 
 function DeliveryOrder() {
   // state -----------
-  const { price } = useParams();
-  console.log(price);
+  const [searchParams] = useSearchParams();
+  const price = searchParams.get("price");
 
   // comportement ----------
   const [loader, setLoader] = useState(true);
