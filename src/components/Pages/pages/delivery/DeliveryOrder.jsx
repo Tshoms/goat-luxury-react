@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-
 import styled from "styled-components";
 import { GoVerified } from "react-icons/go";
 import Loading from "./Loading";
 import { useSearchParams } from "react-router-dom";
+import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 
 function DeliveryOrder() {
   // state -----------
@@ -37,7 +37,9 @@ function DeliveryOrder() {
           <span>{price} €</span>
         </div>
       </div>
-      <h1>The Goat Luxury</h1>
+      <div className="button-container">
+        <PrimaryButton className="icon" label="back to shop" />
+      </div>
     </DeliveryOrderStyled>
   );
 }
@@ -97,6 +99,15 @@ const DeliveryOrderStyled = styled.div`
         color: white;
         font-family: "Playfair Display", serif;
       }
+    }
+  }
+  .button-container {
+    height: 70px;
+    width: 150px;
+    margin-top: 20px;
+
+    .icon {
+      padding: 25px;
     }
   }
 `;
