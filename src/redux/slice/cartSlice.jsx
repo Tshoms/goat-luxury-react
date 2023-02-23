@@ -46,6 +46,11 @@ export const cartSlice = createSlice({
       updateLocalStorage(state.cartItems);
       console.log(state.cartItems);
     },
+    cleanArray: (state, action) => {
+      state.cartItems.splice(0, state.cartItems.length);
+      console.log(state.cartItems);
+      updateLocalStorage(state.cartItems);
+    },
     getName: (state, action) => {
       // don't use ---
       const name = { name: action.payload.name };
@@ -62,5 +67,6 @@ export const {
   deleteProduct,
   getQuantity,
   getName,
+  cleanArray,
 } = cartSlice.actions;
 export default cartSlice.reducer;

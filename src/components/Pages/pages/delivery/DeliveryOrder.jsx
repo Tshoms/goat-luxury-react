@@ -2,18 +2,31 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GoVerified } from "react-icons/go";
 import Loading from "./Loading";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
+import { useDispatch, useSelector } from "react-redux";
+import { cleanArray } from "../../../../redux/slice/cartSlice";
 
 function DeliveryOrder() {
   // state -----------
   const [searchParams] = useSearchParams();
   const price = searchParams.get("price");
 
+  const arrayItem = useSelector((state) => state.cartItems.cartItems);
+  console.log(arrayItem);
+
+  const dispatch = useDispatch();
+
   // comportement ----------
   const [loader, setLoader] = useState(true);
 
   const arrayNumber = 12345;
+
+  const clean = (e) => {
+    e.preventDefault();
+    dispatch(cleanArray(arrayItem));
+    console.log(arrayItem);
+  };
 
   useEffect(() => {
     setInterval(() => {
@@ -37,9 +50,11 @@ function DeliveryOrder() {
           <span>{price} €</span>
         </div>
       </div>
-      <div className="button-container">
-        <PrimaryButton className="icon" label="back to shop" />
-      </div>
+      <Link to={"/acceuil/:user"} onClick={clean}>
+        <div className="button-container">
+          <PrimaryButton className="icon" label="back to shop" />
+        </div>
+      </Link>
     </DeliveryOrderStyled>
   );
 }
