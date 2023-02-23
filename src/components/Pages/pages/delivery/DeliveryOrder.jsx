@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { GoVerified } from "react-icons/go";
 import Loading from "./Loading";
 
 function DeliveryOrder() {
   // state -----------
-  const [searchParams] = useSearchParams();
-  const price = searchParams.get("price");
+  const { price } = useParams();
+  console.log(price);
 
   // comportement ----------
   const [loader, setLoader] = useState(true);
@@ -33,7 +33,7 @@ function DeliveryOrder() {
           <GoVerified className="icon" />
         </div>
         <div className="price-container">
-          <span>240 €</span>
+          <span>{price} €</span>
         </div>
       </div>
       <h1>The Goat Luxury</h1>

@@ -25,7 +25,7 @@ function LoginForm() {
         userName: userName,
       }).toString(),
     });
-    toast.success("content de te revoir 👋 !");
+    toast.success(`Happy to see you ${userName} 👋 !`);
     setUserName("");
   };
 

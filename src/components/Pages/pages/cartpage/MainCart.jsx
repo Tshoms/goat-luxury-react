@@ -42,7 +42,7 @@ function MainCart() {
     e.preventDefault();
     dispatch(deleteProduct(newState));
     setNewState(newState);
-    toast.error("supprimer 🗑!");
+    toast.error("delete item 🗑 !");
     console.log(newState);
   };
   return (

@@ -43,7 +43,7 @@ function MainRightSide({ price }) {
     e.preventDefault();
     dispatch(addProduct(newData));
     setNewData(newData);
-    toast.success("ajouter au panier !");
+    toast.success("add to basket !");
   };
 
   const cartState = useSelector((state) => state.cartItems);
