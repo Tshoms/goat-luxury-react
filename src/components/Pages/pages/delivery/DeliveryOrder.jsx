@@ -20,7 +20,9 @@ function DeliveryOrder() {
   // comportement ----------
   const [loader, setLoader] = useState(true);
 
-  const arrayNumber = 12345;
+  const arrayNumber = Math.floor(Math.random() * (600 - 500 + 1) + 500);
+  console.log(arrayNumber);
+  // const arrayNumber = 12345;
 
   const clean = (e) => {
     e.preventDefault();
