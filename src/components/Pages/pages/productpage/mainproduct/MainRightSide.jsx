@@ -46,7 +46,7 @@ function MainRightSide({ price }) {
     toast.success("add to basket !");
   };
 
-  const cartState = useSelector((state) => state.cartItems);
+  const cartState = useSelector((state) => state.cartItems.cartItems);
   console.log(cartState);
 
   return (
@@ -94,7 +94,7 @@ const MainRightSideStyled = styled.div`
   .item-price {
     height: 80px;
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-top-right-radius: 20px;
 
     h2 {
@@ -105,7 +105,7 @@ const MainRightSideStyled = styled.div`
   .auth-info {
     height: 80px;
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 
     h2 {
       color: black;
@@ -118,7 +118,7 @@ const MainRightSideStyled = styled.div`
     align-items: center;
     height: 275px;
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 
     .logo-auth {
       font-size: 97px;
@@ -128,7 +128,7 @@ const MainRightSideStyled = styled.div`
   .button-container {
     height: 204px;
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-bottom-right-radius: 20px;
 
     form {
@@ -140,7 +140,7 @@ const MainRightSideStyled = styled.div`
       label {
         height: 25%;
         width: 100%;
-        border: 1px solid black;
+        /* border: 1px solid black; */
 
         h3 {
           font-size: 30px;
@@ -154,7 +154,7 @@ const MainRightSideStyled = styled.div`
         align-items: center;
         height: 25%;
         width: 100%;
-        border: 1px solid black;
+        /* border: 1px solid black; */
 
         input {
           height: 25px;

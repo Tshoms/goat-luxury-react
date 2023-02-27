@@ -39,7 +39,8 @@ const CardStyled = styled.div`
   width: 280px;
   height: 200px;
   border-radius: 12px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
+  box-shadow: 0 0 7px rgba(18, 18, 18, 0.5);
   position: relative;
 
   .img-products {
@@ -47,7 +48,7 @@ const CardStyled = styled.div`
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 
     img {
       width: 100%;

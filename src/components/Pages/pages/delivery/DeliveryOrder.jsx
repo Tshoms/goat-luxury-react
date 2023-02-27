@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GoVerified } from "react-icons/go";
 import Loading from "./Loading";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import { useDispatch, useSelector } from "react-redux";
 import { cleanArray } from "../../../../redux/slice/cartSlice";
@@ -11,6 +11,8 @@ function DeliveryOrder() {
   // state -----------
   const [searchParams] = useSearchParams();
   const price = searchParams.get("price");
+
+  const navigate = useNavigate();
 
   const arrayItem = useSelector((state) => state.cartItems.cartItems);
   console.log(arrayItem);
@@ -22,12 +24,13 @@ function DeliveryOrder() {
 
   const arrayNumber = Math.floor(Math.random() * (600 - 500 + 1) + 500);
   console.log(arrayNumber);
-  // const arrayNumber = 12345;
 
-  const clean = (e) => {
+  const backHome = (e) => {
     e.preventDefault();
     dispatch(cleanArray(arrayItem));
-    console.log(arrayItem);
+    navigate({
+      pathname: `/`,
+    });
   };
 
   useEffect(() => {
@@ -52,11 +55,15 @@ function DeliveryOrder() {
           <span>{price} €</span>
         </div>
       </div>
-      <Link to={"/acceuil/:user"} onClick={clean}>
-        <div className="button-container">
-          <PrimaryButton className="icon" label="back to shop" />
-        </div>
-      </Link>
+      {/* <Link to={"/acceuil/:user"} onClick={clean}> */}
+      <div className="button-container">
+        <PrimaryButton
+          className="icon"
+          label="back to shop"
+          onClick={backHome}
+        />
+      </div>
+      {/* </Link> */}
     </DeliveryOrderStyled>
   );
 }

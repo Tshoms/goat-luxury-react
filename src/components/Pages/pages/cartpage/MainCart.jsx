@@ -21,7 +21,6 @@ function MainCart() {
   console.log(arrayPrice);
   //--------------
   const [qty, setQty] = useState(1);
-  const totalPriceItem = qty * arrayPrice;
 
   //--------------
   const totalPrice = arrayPrice.reduce((a, b) => a + b, 0);

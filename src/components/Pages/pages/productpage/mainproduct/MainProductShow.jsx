@@ -36,7 +36,8 @@ const MainProductShowStyled = styled.div`
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  box-shadow: 0 0 7px rgba(20, 20, 20, 0.5);
 `;
 
 export default MainProductShow;
