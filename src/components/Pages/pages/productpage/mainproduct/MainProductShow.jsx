@@ -1,10 +1,8 @@
 import React, { useRef, useState } from "react";
-
 import { useParams } from "react-router-dom";
 import { sneakers } from "../../../../../fakedata/ProductsData";
 import styled from "styled-components";
-import MainRightSide from "./MainRightSide";
-import MainLeftSide from "./MainLeftSide";
+import ProductInfo from "./ProductInfo";
 
 function MainProductShow() {
   // state ------------
@@ -19,8 +17,11 @@ function MainProductShow() {
 
   return (
     <MainProductShowStyled>
-      <MainLeftSide name={product[items].name} image={product[items].image} />
-      <MainRightSide price={product[items].price} />
+      <ProductInfo
+        name={product[items].name}
+        image={product[items].image}
+        price={product[items].price}
+      />
     </MainProductShowStyled>
   );
 }
@@ -29,7 +30,7 @@ const MainProductShowStyled = styled.div`
   display: flex;
   flex-direction: row;
   height: 54%;
-  width: 80%;
+  width: 40%;
   background-color: white;
   margin: 40px;
   border-top-left-radius: 20px;
