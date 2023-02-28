@@ -16,7 +16,9 @@ function NavbarRightSide({ userName, notifCart }) {
         <span>{notifCart}</span>
       </div>
       <div className="heartlogo">
-        <FaRegHeart className="icon-heart" />
+        <Link to={{ pathname: "/Favori" }}>
+          <FaRegHeart className="icon-heart" />
+        </Link>
         <span>0</span>
       </div>
     </NavbarRightSideStyled>
