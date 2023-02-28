@@ -13,6 +13,7 @@ function MainCart() {
   // state ------
   const cartState = useSelector((state) => state.cartItems.cartItems);
   console.log(cartState);
+  const NumberItem = cartState.length;
   const dispatch = useDispatch();
   const [newState, setNewState] = useState(cartState);
 
@@ -47,18 +48,23 @@ function MainCart() {
   return (
     <MainCartStyled>
       <div className="cart-items">
-        {cartState.map((item) => {
-          return (
-            <ItemCart
-              id={item.id}
-              name={item.name}
-              price={item.newprice}
-              image={item.image}
-              totalPrice={totalPrice}
-              onClick={handledelete}
-            />
-          );
-        })}
+        <div className="item-qty">
+          <p>Item quantity - {NumberItem}</p>
+        </div>
+        <div className="show-item">
+          {cartState.map((item) => {
+            return (
+              <ItemCart
+                id={item.id}
+                name={item.name}
+                price={item.newprice}
+                image={item.image}
+                totalPrice={totalPrice}
+                onClick={handledelete}
+              />
+            );
+          })}
+        </div>
       </div>
       <Subtotal totalPrice={totalPrice} qty={qty} arrayPrice={arrayPrice} />
     </MainCartStyled>
@@ -73,16 +79,40 @@ const MainCartStyled = styled.div`
 
   .cart-items {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     flex-direction: column;
     height: 100%;
     width: 60%;
     border: 3px solid black;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    /* overflow-y: scroll; */
 
-    overflow-y: scroll;
+    .item-qty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10%;
+      width: 100%;
+      background-color: black;
+
+      p {
+        color: white;
+        font-size: 35px;
+        font-family: "Playfair Display", serif;
+      }
+    }
+
+    .show-item {
+      height: 90%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow-y: scroll;
+    }
   }
 `;
 export default MainCart;
