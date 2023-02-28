@@ -5,6 +5,7 @@ import { createSearchParams, useNavigate } from "react-router-dom";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 import TextInput from "../../../reusable-ui/TextInput";
 import { BsPersonCircle } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 
 function LoginForm() {
   // state ------
@@ -25,7 +26,8 @@ function LoginForm() {
         userName: userName,
       }).toString(),
     });
-    toast.success("content de te revoir 👋 !");
+
+    toast.success(`Happy to see you ${userName} 👋 !`);
     setUserName("");
   };
 

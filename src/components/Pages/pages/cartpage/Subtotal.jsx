@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { GoPackage } from "react-icons/go";
 import { MdOutlineDeliveryDining } from "react-icons/md";
 import { SlPlane } from "react-icons/sl";
 import { Ri24HoursLine } from "react-icons/ri";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
-import { useSelector } from "react-redux";
+import { createSearchParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Subtotal({ totalPrice }) {
-  const newprice = useSelector((state) => state.cartItems.cartItems);
-  console.log(newprice);
+  // state -----------
 
+  const navigate = useNavigate();
+
+  // comportement ----------
+  const getOrder = (e) => {
+    e.preventDefault();
+    if (totalPrice === 0) {
+      toast.error("sorry no item in basket ... ");
+    } else {
+      navigate({
+        pathname: "/payment/:price",
+        search: createSearchParams({
+          price: totalPrice,
+        }).toString(),
+      });
+    }
+  };
   return (
     <SubtotalStyled>
       <div className="delivery-title">
@@ -29,8 +45,15 @@ function Subtotal({ totalPrice }) {
       <div className="subtotal-price">
         <h3>{totalPrice} €</h3>
       </div>
+
       <div className="button">
-        <PrimaryButton className="button-style" label="BUY" />
+        {/* <Link to={{ pathname: `/payment/${totalPrice}` }}> */}
+        <PrimaryButton
+          className="button-style"
+          label="BUY"
+          onClick={getOrder}
+        />
+        {/* </Link> */}
       </div>
     </SubtotalStyled>
   );

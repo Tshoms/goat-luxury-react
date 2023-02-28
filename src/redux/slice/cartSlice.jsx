@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cartItems: [],
-  nameUser: [],
 };
 
 const updateLocalStorage = (newItemArray) => {
@@ -46,11 +45,10 @@ export const cartSlice = createSlice({
       updateLocalStorage(state.cartItems);
       console.log(state.cartItems);
     },
-    getName: (state, action) => {
-      // don't use ---
-      const name = { name: action.payload.name };
-      console.log(name);
-      state.nameUser.push(name);
+    cleanArray: (state, action) => {
+      state.cartItems.splice(0, state.cartItems.length);
+      console.log(state.cartItems);
+      updateLocalStorage(state.cartItems);
     },
   },
 });
@@ -61,6 +59,6 @@ export const {
   getLocalStorageData,
   deleteProduct,
   getQuantity,
-  getName,
+  cleanArray,
 } = cartSlice.actions;
 export default cartSlice.reducer;

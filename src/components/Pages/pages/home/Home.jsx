@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
 import Head from "./Head";
@@ -12,11 +12,12 @@ function Home() {
   // state --------
   const [searchParams] = useSearchParams();
   const userName = searchParams.get("userName");
+  const dispatch = useDispatch();
 
   const arrayCart = useSelector((state) => state.cartItems.cartItems);
-
+  console.log(arrayCart);
   // localStorage -----------
-  const dispatch = useDispatch();
+
   useEffect(() => {
     if (localStorage.getItem("itemData")) {
       dispatch(getLocalStorageData());
