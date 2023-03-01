@@ -7,6 +7,7 @@ function MainHeart() {
       <div className="heart-titel">
         <p>Favorite Item</p>
       </div>
+      <div className="item-container"></div>
     </MainHeartStyled>
   );
 }
@@ -38,6 +39,16 @@ const MainHeartStyled = styled.div`
       font-size: 40px;
       font-family: "Playfair Display", serif;
     }
+  }
+
+  .item-container {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    width: 100%;
+    border: 1px solid grey;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
 `;
 
