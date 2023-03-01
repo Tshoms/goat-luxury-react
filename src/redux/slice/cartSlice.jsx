@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cartItems: [],
+  heartItems: [],
 };
 
 const updateLocalStorage = (newItemArray) => {
@@ -29,6 +30,16 @@ export const cartSlice = createSlice({
       state.cartItems.push(newItem);
       updateLocalStorage(state.cartItems);
     },
+    addHeartProduct: (state, action) => {
+      const newItem = {
+        id: action.payload.id,
+        name: action.payload.name,
+        price: action.payload.price,
+        image: action.payload.image,
+      };
+      console.log(newItem);
+      state.heartItems.push(newItem);
+    },
     getQuantity: (state, action) => {
       const qtyTotal = {
         id: action.payload.id,
@@ -44,6 +55,11 @@ export const cartSlice = createSlice({
       state.cartItems.pop(id);
       updateLocalStorage(state.cartItems);
       console.log(state.cartItems);
+    },
+    deleteHeartProduct: (state, action) => {
+      const id = { id: action.payload.id };
+      state.heartItems.find((item) => item.id === id);
+      state.heartItems.pop(id);
     },
     cleanArray: (state, action) => {
       state.cartItems.splice(0, state.cartItems.length);
