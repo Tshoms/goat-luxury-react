@@ -5,9 +5,13 @@ import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 function Card({ id, name, image, price }) {
   // state ------
-  const [conteur, setConteur] = useState(0);
+  const [color, setColor] = useState("white");
   // comportement --------
-  const handleClick = () => {};
+  const handleClick = (e) => {
+    e.preventDefault();
+    setColor("red");
+    console.log("to favorite !!!");
+  };
   return (
     <CardStyled>
       <div className="img-products">
@@ -16,18 +20,18 @@ function Card({ id, name, image, price }) {
       <div className="title-products">{name}</div>
       <Link to={{ pathname: `/produit/${id}` }}>
         <div className="button-container">
-          <PrimaryButton
-            label="info"
-            className="button-card"
-            onClick={handleClick}
-          />
+          <PrimaryButton label="info" className="button-card" />
         </div>
       </Link>
       <div className="price">
         <span>{price} $</span>
       </div>
       <div className="favorite">
-        <AiFillHeart className="favorite-heart" />
+        <AiFillHeart
+          className="favorite-heart"
+          style={{ color: color }}
+          onClick={handleClick}
+        />
       </div>
     </CardStyled>
   );
@@ -106,8 +110,10 @@ const CardStyled = styled.div`
     right: 0;
 
     .favorite-heart {
-      color: black;
       font-size: 23px;
+
+      :hover {
+      }
     }
   }
 `;
