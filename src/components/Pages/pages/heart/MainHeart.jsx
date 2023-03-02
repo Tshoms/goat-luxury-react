@@ -1,13 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 function MainHeart() {
+  const arrayHeart = useSelector((state) => state.cartItems.heartItems);
+  console.log(arrayHeart);
   return (
     <MainHeartStyled>
       <div className="heart-titel">
         <p>Favorite Item</p>
       </div>
-      <div className="item-container"></div>
+      <div className="item-container">
+        {arrayHeart.map((item) => {
+          return (
+            <div className="item-shape">
+              <p>{item.name}</p>
+              <p>{item.price}</p>
+              <p>{item.id}</p>
+            </div>
+          );
+        })}
+      </div>
     </MainHeartStyled>
   );
 }
@@ -44,11 +57,26 @@ const MainHeartStyled = styled.div`
   .item-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 85%;
     width: 100%;
     border: 1px solid grey;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    overflow-y: scroll;
+
+    .item-shape {
+      display: flex;
+      flex-direction: row;
+      height: 30px;
+      width: 90%;
+      border: 1px solid black;
+
+      p {
+        color: black;
+      }
+    }
   }
 `;
 
