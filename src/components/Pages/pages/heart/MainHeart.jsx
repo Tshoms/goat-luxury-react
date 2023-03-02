@@ -13,10 +13,19 @@ function MainHeart() {
       <div className="item-container">
         {arrayHeart.map((item) => {
           return (
-            <div className="item-shape">
-              <p>{item.name}</p>
-              <p>{item.price}</p>
-              <p>{item.id}</p>
+            <div key={item.id} className="item-shape">
+              <div className="picture-item">
+                <img src={item.image} />
+              </div>
+              <div className="title-item">
+                <p>{item.name}</p>
+              </div>
+              <div className="price-item">
+                <p>{item.price} €</p>
+              </div>
+              <div className="button">
+                <p>X</p>
+              </div>
             </div>
           );
         })}
@@ -69,12 +78,77 @@ const MainHeartStyled = styled.div`
     .item-shape {
       display: flex;
       flex-direction: row;
-      height: 30px;
+      height: 170px;
       width: 90%;
-      border: 1px solid black;
+      /* border: 1px solid black; */
+      border-radius: 10px;
+      margin-top: 7px;
+      margin-bottom: 7px;
+      /* background-color: #f6ddcc; */
+      box-shadow: 0 0 7px rgba(18, 18, 18, 0.5);
 
       p {
         color: black;
+        font-family: "Playfair Display", serif;
+      }
+
+      .picture-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 30%;
+
+        img {
+          height: 90%;
+          width: 90%;
+          border-radius: 10px;
+        }
+      }
+
+      .title-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 35%;
+        /* border: 1px solid black; */
+
+        p {
+          color: black;
+          font-family: "Playfair Display", serif;
+          font-size: 25px;
+        }
+      }
+
+      .price-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 20%;
+        /* border: 1px solid green; */
+
+        p {
+          color: black;
+          font-family: "Playfair Display", serif;
+          font-size: 25px;
+        }
+      }
+
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 15%;
+        background-color: red;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        p {
+          color: white;
+        }
       }
     }
   }
