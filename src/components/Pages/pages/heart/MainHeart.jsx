@@ -15,7 +15,7 @@ function MainHeart() {
 const MainHeartStyled = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 80%;
   width: 60%;
   background-color: white;
   border-top-left-radius: 10px;

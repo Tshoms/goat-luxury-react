@@ -16,6 +16,12 @@ function Home() {
 
   const arrayCart = useSelector((state) => state.cartItems.cartItems);
   console.log(arrayCart);
+  // -------
+
+  const favArray = useSelector((state) => state.cartItems.heartItems);
+  console.log(favArray);
+  const notifHeart = favArray.length;
+  console.log(notifHeart);
   // localStorage -----------
 
   useEffect(() => {
@@ -29,7 +35,11 @@ function Home() {
 
   return (
     <HomeStyled>
-      <Navbar userName={userName} notifCart={notifCart} />
+      <Navbar
+        userName={userName}
+        notifCart={notifCart}
+        notifHeart={notifHeart}
+      />
       <Head />
       <Article />
       <Main />

@@ -1,15 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import PrimaryButton from "../reusable-ui/PrimaryButton";
 import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import {
+  addHeartProduct,
+  getLocalStorageHeart,
+} from "../redux/slice/cartSlice";
+
 function Card({ id, name, image, price }) {
   // state ------
   const [color, setColor] = useState("white");
+
+  const favArray = useSelector((state) => state.cartItems.heartItems);
+  console.log(favArray);
+  const notifHeart = favArray.length;
+  console.log(notifHeart);
+
   // comportement --------
+  const initialState = {
+    id: id,
+    name: name,
+    image: image,
+    price: price,
+  };
+  console.log(initialState);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (localStorage.getItem("HeartData")) {
+      dispatch(getLocalStorageHeart());
+    }
+  }, []);
+
   const handleClick = (e) => {
     e.preventDefault();
     setColor("red");
+    dispatch(addHeartProduct(initialState));
     console.log("to favorite !!!");
   };
   return (

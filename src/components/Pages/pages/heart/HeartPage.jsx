@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import heartpicture from "../../../../assets/images/heartpage.jpg";
+import heartpicture from "../../../../assets/images/heart2.jpg";
 import MainHeart from "./MainHeart";
 
 function HeartPage() {

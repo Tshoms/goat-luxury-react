@@ -9,6 +9,10 @@ const updateLocalStorage = (newItemArray) => {
   localStorage.setItem("itemData", JSON.stringify(newItemArray));
 };
 
+const updateLocalStorageHeart = (newHeartArray) => {
+  localStorage.setItem("HeartData", JSON.stringify(newHeartArray));
+};
+
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -16,6 +20,9 @@ export const cartSlice = createSlice({
   reducers: {
     getLocalStorageData: (state) => {
       state.cartItems = JSON.parse(localStorage.getItem("itemData"));
+    },
+    getLocalStorageHeart: (state) => {
+      state.heartItems = JSON.parse(localStorage.getItem("HeartData"));
     },
 
     addProduct: (state, action) => {
@@ -39,6 +46,7 @@ export const cartSlice = createSlice({
       };
       console.log(newItem);
       state.heartItems.push(newItem);
+      updateLocalStorageHeart(state.heartItems);
     },
     getQuantity: (state, action) => {
       const qtyTotal = {
@@ -60,6 +68,7 @@ export const cartSlice = createSlice({
       const id = { id: action.payload.id };
       state.heartItems.find((item) => item.id === id);
       state.heartItems.pop(id);
+      updateLocalStorageHeart(state.heartItems);
     },
     cleanArray: (state, action) => {
       state.cartItems.splice(0, state.cartItems.length);
@@ -73,8 +82,11 @@ export const cartSlice = createSlice({
 export const {
   addProduct,
   getLocalStorageData,
+  getLocalStorageHeart,
   deleteProduct,
   getQuantity,
   cleanArray,
+  addHeartProduct,
+  deleteHeartProduct,
 } = cartSlice.actions;
 export default cartSlice.reducer;
