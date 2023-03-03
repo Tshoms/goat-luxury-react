@@ -34,7 +34,7 @@ function MainHeart() {
   return (
     <MainHeartStyled>
       <div className="heart-titel">
-        <p>Favorite Item - {notifArray} </p>
+        <p>Wishlist - {notifArray} </p>
       </div>
       <div className="item-container">
         {arrayHeart.map((item) => {

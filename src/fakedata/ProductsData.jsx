@@ -302,3 +302,115 @@ export const jewelery = [
 ];
 
 export const bags = [];
+
+export const everything = [
+  {
+    id: 1,
+    image: require("../assets/images/lvbag4.jpg"),
+    name: "LV bag color",
+    price: 700,
+  },
+  {
+    id: 2,
+    image: require("../assets/images/lvbag5.jpg"),
+    name: "LV bag ",
+    price: 700,
+  },
+  {
+    id: 3,
+    image: require("../assets/images/lvbag6.jpg"),
+    name: "LV bag ",
+    price: 700,
+  },
+  {
+    id: 4,
+    image: require("../assets/images/lvbag1.jpg"),
+    name: "LV bag ",
+    price: 700,
+  },
+  {
+    id: 5,
+    image: require("../assets/images/lvbag2.jpg"),
+    name: "LV bag ",
+    price: 700,
+  },
+  {
+    id: 6,
+    image: require("../assets/images/lvbag3.jpg"),
+    name: "LV bag ",
+    price: 700,
+  },
+  {
+    id: 7,
+    image: require("../assets/images/lvpull1.jpg"),
+    name: "LV bag ",
+    price: 700,
+  },
+  {
+    id: 8,
+    image: require("../assets/images/lvpull2.jpg"),
+    name: "LV bag ",
+    price: 700,
+  },
+  {
+    id: 9,
+    image: require("../assets/images/lvpull3.jpg"),
+    name: "LV bag ",
+    price: 700,
+  },
+  {
+    id: 10,
+    image: require("../assets/images/rolex1.jpg"),
+    name: "LV bag ",
+    price: 700,
+  },
+  {
+    id: 11,
+    image: require("../assets/images/rolex2.jpg"),
+    name: "LV bag ",
+    price: 700,
+  },
+  {
+    id: 12,
+    image: require("../assets/images/rolex3.jpg"),
+    name: "LV bag ",
+    price: 700,
+  },
+  {
+    id: 13,
+    image: require("../assets/images/jordan-one.jpg"),
+    name: "Jordan one classic",
+    price: 120,
+  },
+  {
+    id: 14,
+    image: require("../assets/images/jordan-one-blue.jpg"),
+    name: "Jordan one blue",
+    price: 120,
+  },
+  {
+    id: 15,
+    image: require("../assets/images/jordan-one-infrared.jpg"),
+    name: "Jordan one infrared",
+    price: 120,
+  },
+  {
+    id: 16,
+    image: require("../assets/images/off-white-jordan-one-red.jpg"),
+    name: "Off-White Jordan one red",
+    price: 120,
+  },
+
+  {
+    id: 17,
+    image: require("../assets/images/off-white-jordan-one-blue.jpg"),
+    name: "Off-White Jordan one white",
+    price: 120,
+  },
+  {
+    id: 18,
+    image: require("../assets/images/off-white-jordan-one-white.jpg"),
+    name: "Off-White Jordan one blue",
+    price: 120,
+  },
+];

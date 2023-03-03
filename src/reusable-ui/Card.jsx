@@ -44,7 +44,7 @@ function Card({ id, name, image, price }) {
     } else {
       setColor("red");
       dispatch(addHeartProduct(initialState));
-      toast.success(`add to favorite 💝 !`);
+      toast.success(`add to wishlist 💝 !`);
       console.log("to favorite !!!");
     }
   };
