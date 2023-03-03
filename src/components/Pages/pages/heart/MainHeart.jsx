@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteHeartProduct } from "../../../../redux/slice/cartSlice";
+import { toast } from "react-toastify";
 
 function MainHeart() {
+  // state ------------
   const arrayHeart = useSelector((state) => state.cartItems.heartItems);
   console.log(arrayHeart);
+
+  const [newArray, setNewArray] = useState(arrayHeart);
+
+  const dispatch = useDispatch();
+
+  // comportement ------------
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(deleteHeartProduct(newArray));
+    toast.error("delete item 🗑 !");
+    setNewArray(newArray);
+  };
   return (
     <MainHeartStyled>
       <div className="heart-titel">
@@ -23,7 +38,7 @@ function MainHeart() {
               <div className="price-item">
                 <p>{item.price} €</p>
               </div>
-              <div className="button">
+              <div className="button" onClick={handleClick}>
                 <p>X</p>
               </div>
             </div>
@@ -78,7 +93,7 @@ const MainHeartStyled = styled.div`
     .item-shape {
       display: flex;
       flex-direction: row;
-      height: 170px;
+      height: 130px;
       width: 90%;
       /* border: 1px solid black; */
       border-radius: 10px;

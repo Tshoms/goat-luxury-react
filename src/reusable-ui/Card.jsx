@@ -8,6 +8,7 @@ import {
   addHeartProduct,
   getLocalStorageHeart,
 } from "../redux/slice/cartSlice";
+import { toast } from "react-toastify";
 
 function Card({ id, name, image, price }) {
   // state ------
@@ -37,10 +38,17 @@ function Card({ id, name, image, price }) {
 
   const handleClick = (e) => {
     e.preventDefault();
-    setColor("red");
-    dispatch(addHeartProduct(initialState));
-    console.log("to favorite !!!");
+    const arrayCopy = favArray.find((e) => e.id === initialState.id);
+    if (arrayCopy) {
+      toast.error("Sorry Item add before...");
+    } else {
+      setColor("red");
+      dispatch(addHeartProduct(initialState));
+      toast.success(`add to favorite 💝 !`);
+      console.log("to favorite !!!");
+    }
   };
+
   return (
     <CardStyled>
       <div className="img-products">
