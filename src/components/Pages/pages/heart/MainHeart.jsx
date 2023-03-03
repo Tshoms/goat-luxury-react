@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteHeartProduct } from "../../../../redux/slice/cartSlice";
 import { toast } from "react-toastify";
+import { getLocalStorageHeart } from "../../../../redux/slice/cartSlice.jsx";
 
 function MainHeart() {
   // state ------------
   const arrayHeart = useSelector((state) => state.cartItems.heartItems);
   console.log(arrayHeart);
+
+  const notifArray = arrayHeart.length;
+  // console.log(notifArray);
 
   const [newArray, setNewArray] = useState(arrayHeart);
 
@@ -20,10 +24,17 @@ function MainHeart() {
     toast.error("delete item 🗑 !");
     setNewArray(newArray);
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("HeartData")) {
+      dispatch(getLocalStorageHeart());
+    }
+  }, []);
+
   return (
     <MainHeartStyled>
       <div className="heart-titel">
-        <p>Favorite Item</p>
+        <p>Favorite Item - {notifArray} </p>
       </div>
       <div className="item-container">
         {arrayHeart.map((item) => {
