@@ -4,10 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Subtotal from "./Subtotal";
 import ItemCart from "./ItemCart";
-import {
-  deleteProduct,
-  getLocalStorageData,
-} from "../../../../redux/slice/cartSlice";
+import { getLocalStorageData } from "../../../../redux/slice/cartSlice";
+import { deleteProduct } from "../../../../redux/slice/cartSlice.jsx";
 
 function MainCart() {
   // state ------
@@ -37,14 +35,10 @@ function MainCart() {
   }, []);
 
   // comportement ------
-
-  const handledelete = (e) => {
-    e.preventDefault();
-    dispatch(deleteProduct(newState));
-    setNewState(newState);
-    toast.error("delete item 🗑 !");
-    console.log(newState);
+  const handleDelete = (id) => {
+    dispatch(deleteProduct(id));
   };
+
   return (
     <MainCartStyled>
       <div className="cart-items">
@@ -60,7 +54,7 @@ function MainCart() {
                 price={item.newprice}
                 image={item.image}
                 totalPrice={totalPrice}
-                onClick={handledelete}
+                onClick={() => handleDelete(item.id)}
               />
             );
           })}

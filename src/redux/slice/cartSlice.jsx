@@ -58,16 +58,16 @@ export const cartSlice = createSlice({
       state.cartItems.push(qtyTotal);
     },
     deleteProduct: (state, action) => {
-      const id = { id: action.payload.id };
-      state.cartItems.find((item) => item.id === id);
-      state.cartItems.pop(id);
+      const id = action.payload;
+      state.cartItems = state.cartItems.filter((el) => el.id !== id);
+
       updateLocalStorage(state.cartItems);
       console.log(state.cartItems);
     },
     deleteHeartProduct: (state, action) => {
-      const id = { id: action.payload.id };
-      state.heartItems.find((item) => item.id === id);
-      state.heartItems.pop(id);
+      const id = action.payload;
+      state.heartItems = state.heartItems.filter((item) => item.id !== id);
+
       updateLocalStorageHeart(state.heartItems);
     },
     cleanArray: (state, action) => {

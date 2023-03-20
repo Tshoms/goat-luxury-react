@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { TbCircleMinus, TbCirclePlus } from "react-icons/tb";
 
-function ItemCart({ name, price, image, onClick }) {
+function ItemCart({ id, name, price, image, onClick }) {
   // state --------
   const [qty, setQty] = useState(1);
   const totalPriceItem = qty * price;
+
   // comportement -------
 
   const addQty = (e) => {
@@ -21,7 +22,7 @@ function ItemCart({ name, price, image, onClick }) {
   };
 
   return (
-    <ItemStyled>
+    <ItemStyled key={id}>
       <div className="picture-product">
         <img src={image} alt="" />
       </div>

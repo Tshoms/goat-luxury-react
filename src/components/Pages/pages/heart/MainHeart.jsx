@@ -18,11 +18,9 @@ function MainHeart() {
   const dispatch = useDispatch();
 
   // comportement ------------
-  const handleClick = (e) => {
-    e.preventDefault();
-    dispatch(deleteHeartProduct(newArray));
+  const handleClick = (id) => {
+    dispatch(deleteHeartProduct(id));
     toast.error("delete item 🗑 !");
-    setNewArray(newArray);
   };
 
   useEffect(() => {
@@ -49,7 +47,7 @@ function MainHeart() {
               <div className="price-item">
                 <p>{item.price} €</p>
               </div>
-              <div className="button" onClick={handleClick}>
+              <div className="button" onClick={() => handleClick(item.id)}>
                 <p>X</p>
               </div>
             </div>
