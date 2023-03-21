@@ -16,14 +16,19 @@ function MainCart() {
   const [newState, setNewState] = useState(cartState);
 
   //--------------
-  const arrayPrice = cartState.map((item) => item.newprice);
+  const arrayPrice = cartState.map((item) => item.price);
   console.log(arrayPrice);
+  const arrayQty = cartState.map((item) => item.quantity);
+  console.log(arrayQty);
+  const totalQtyPrice = arrayPrice * arrayQty;
+  console.log(totalQtyPrice);
   //--------------
-  const [qty, setQty] = useState(1);
 
   //--------------
   const totalPrice = arrayPrice.reduce((a, b) => a + b, 0);
   console.log(totalPrice);
+  const totalQtyItem = arrayQty.reduce((a, b) => a + b, 0);
+  console.log(totalQtyItem);
 
   //--------------
 
@@ -43,7 +48,7 @@ function MainCart() {
     <MainCartStyled>
       <div className="cart-items">
         <div className="item-qty">
-          <p>Item quantity - {NumberItem}</p>
+          <p>Item quantity - {totalQtyItem}</p>
         </div>
         <div className="show-item">
           {cartState.map((item) => {
@@ -51,16 +56,17 @@ function MainCart() {
               <ItemCart
                 id={item.id}
                 name={item.name}
-                price={item.newprice}
+                price={item.price}
                 image={item.image}
-                totalPrice={totalPrice}
+                totalQtyPrice={totalQtyPrice}
+                quantity={item.quantity}
                 onClick={() => handleDelete(item.id)}
               />
             );
           })}
         </div>
       </div>
-      <Subtotal totalPrice={totalPrice} qty={qty} arrayPrice={arrayPrice} />
+      <Subtotal totalPrice={totalPrice} arrayPrice={arrayPrice} />
     </MainCartStyled>
   );
 }

@@ -1,25 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { TbCircleMinus, TbCirclePlus } from "react-icons/tb";
+// import { TbCircleMinus, TbCirclePlus } from "react-icons/tb";
 
-function ItemCart({ id, name, price, image, onClick }) {
+function ItemCart({ id, name, price, image, quantity, onClick }) {
   // state --------
-  const [qty, setQty] = useState(1);
-  const totalPriceItem = qty * price;
+  // const [qty, setQty] = useState(1);
+  // const totalPriceItem = qty * price;
 
   // comportement -------
-
-  const addQty = (e) => {
-    e.preventDefault();
-    setQty(qty + 1);
-    console.log(qty);
-    // dispatch(getQuantity(initialState));
-  };
-
-  const lowQty = (e) => {
-    e.preventDefault();
-    setQty(qty - 1);
-  };
 
   return (
     <ItemStyled key={id}>
@@ -34,13 +22,13 @@ function ItemCart({ id, name, price, image, onClick }) {
           <p>Qty</p>
         </div>
         <div className="qty-button">
-          <TbCircleMinus className="icon" onClick={lowQty} />
-          <span>{qty}</span>
-          <TbCirclePlus className="icon" onClick={addQty} />
+          {/* <TbCircleMinus className="icon"  /> */}
+          <span>{quantity}</span>
+          {/* <TbCirclePlus className="icon"  /> */}
         </div>
       </div>
       <div className="price-product">
-        <p>{totalPriceItem} €</p>
+        <p>{price} €</p>
       </div>
       <div className="button-delete">
         <button onClick={onClick}>
@@ -89,7 +77,7 @@ const ItemStyled = styled.div`
   }
 
   .qty {
-    display: none;
+    /* display: none; */
     flex-direction: column;
     height: 100%;
     width: 30%;

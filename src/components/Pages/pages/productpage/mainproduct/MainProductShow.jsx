@@ -29,7 +29,7 @@ function MainProductShow() {
 const MainProductShowStyled = styled.div`
   display: flex;
   flex-direction: row;
-  height: 54%;
+  height: 90%;
   width: 40%;
   background-color: white;
   margin: 40px;
