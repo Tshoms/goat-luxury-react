@@ -16,6 +16,10 @@ function Home() {
 
   const arrayCart = useSelector((state) => state.cartItems.cartItems);
   console.log(arrayCart);
+  const numberQty = arrayCart.map((item) => item.quantity);
+  console.log(numberQty);
+  const notifQty = numberQty.reduce((a, b) => a + b, 0);
+  console.log(notifQty);
   // -------
 
   const favArray = useSelector((state) => state.cartItems.heartItems);
@@ -30,14 +34,11 @@ function Home() {
     }
   }, []);
 
-  const notifCart = arrayCart.length;
-  console.log(notifCart);
-
   return (
     <HomeStyled>
       <Navbar
         userName={userName}
-        notifCart={notifCart}
+        notifCart={notifQty}
         notifHeart={notifHeart}
       />
       <Head />
