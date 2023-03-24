@@ -72,7 +72,7 @@ function MainCart() {
 const MainCartStyled = styled.div`
   display: flex;
   flex-direction: row;
-  height: 600px;
+  height: 70%;
   width: 80%;
 
   .cart-items {
@@ -110,6 +110,7 @@ const MainCartStyled = styled.div`
       align-items: center;
       flex-direction: column;
       overflow-y: scroll;
+      background-color: white;
     }
   }
 `;

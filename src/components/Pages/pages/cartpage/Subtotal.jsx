@@ -29,7 +29,7 @@ function Subtotal({ totalPrice }) {
   };
   return (
     <SubtotalStyled>
-      <div className="delivery-title">
+      {/* <div className="delivery-title">
         <h3>Delivery in </h3>
         <Ri24HoursLine className="icon-hours" />
         <h3>hours </h3>
@@ -38,7 +38,7 @@ function Subtotal({ totalPrice }) {
         <SlPlane className="icon" />
         <MdOutlineDeliveryDining className="icon" />
         <GoPackage className="icon" />
-      </div>
+      </div> */}
       <div className="subtotal-p">
         <h3>Subtotal</h3>
       </div>
@@ -107,7 +107,7 @@ const SubtotalStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15%;
+    height: 35%;
     width: 100%;
     background-color: black;
 
@@ -122,8 +122,9 @@ const SubtotalStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15%;
+    height: 45%;
     width: 100%;
+    background-color: white;
 
     h3 {
       color: black;
