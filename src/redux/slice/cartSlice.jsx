@@ -31,9 +31,12 @@ export const cartSlice = createSlice({
       );
       console.log(itemIndex);
 
+      const price = action.payload.price;
+      console.log(price);
+
       if (itemIndex !== -1) {
         state.cartItems[itemIndex].quantity += 1;
-        state.cartItems[itemIndex].price += 120;
+        state.cartItems[itemIndex].price += price;
       } else {
         state.cartItems.push({ ...action.payload, quantity: 1 });
       }

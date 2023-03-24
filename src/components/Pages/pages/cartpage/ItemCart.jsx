@@ -137,7 +137,7 @@ const ItemStyled = styled.div`
     button {
       height: 100%;
       width: 100%;
-      background-color: red;
+      background-color: black;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       border: none;
