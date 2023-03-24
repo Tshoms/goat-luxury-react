@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-// import { TbCircleMinus, TbCirclePlus } from "react-icons/tb";
+import { BsTrashFill } from "react-icons/bs";
+
+import { TbCircleMinus, TbCirclePlus } from "react-icons/tb";
 
 function ItemCart({ id, name, price, image, quantity, onClick }) {
   // state --------
-  // const [qty, setQty] = useState(1);
-  // const totalPriceItem = qty * price;
 
   // comportement -------
 
@@ -32,7 +32,7 @@ function ItemCart({ id, name, price, image, quantity, onClick }) {
       </div>
       <div className="button-delete">
         <button onClick={onClick}>
-          <p>X</p>
+          <BsTrashFill className="icon" />
         </button>
       </div>
     </ItemStyled>
@@ -42,7 +42,7 @@ function ItemCart({ id, name, price, image, quantity, onClick }) {
 const ItemStyled = styled.div`
   display: flex;
   flex-direction: row;
-  height: 125px;
+  height: 95px;
   width: 95%;
   background-color: #ece9e9;
   border-radius: 10px;
@@ -53,7 +53,7 @@ const ItemStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 25%;
+    width: 35%;
     /* border: 1px solid black; */
 
     img {
@@ -80,7 +80,7 @@ const ItemStyled = styled.div`
     /* display: none; */
     flex-direction: column;
     height: 100%;
-    width: 30%;
+    width: 20%;
     /* border: 1px solid black; */
 
     .qty-title {
@@ -117,7 +117,8 @@ const ItemStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 40%;
+    width: 30%;
+    /* border: 1px solid black; */
 
     p {
       font-size: 20px;
@@ -129,7 +130,7 @@ const ItemStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 10%;
+    width: 20%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 
@@ -141,7 +142,7 @@ const ItemStyled = styled.div`
       border-bottom-right-radius: 10px;
       border: none;
 
-      p {
+      .icon {
         font-size: 15px;
         color: white;
       }

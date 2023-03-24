@@ -26,15 +26,6 @@ export const cartSlice = createSlice({
     },
 
     addProduct: (state, action) => {
-      // const newItem = {
-      //   id: action.payload.id,
-      //   name: action.payload.name,
-      //   price: action.payload.price,
-      //   image: action.payload.image,
-      //   newprice: action.payload.newprice,
-      // };
-      // console.log(newItem);
-      // state.cartItems.push(newItem);
       const itemIndex = state.cartItems.findIndex(
         (obj) => obj.id === action.payload.id
       );
@@ -42,6 +33,7 @@ export const cartSlice = createSlice({
 
       if (itemIndex !== -1) {
         state.cartItems[itemIndex].quantity += 1;
+        state.cartItems[itemIndex].price += 120;
       } else {
         state.cartItems.push({ ...action.payload, quantity: 1 });
       }

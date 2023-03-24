@@ -14,12 +14,6 @@ function ProductInfo({ name, image, price }) {
   const items = sneakers.find((item) => item.id === parseInt(id));
   // qty --------------
   const [nbSneaker, setNbSneakers] = useState(1);
-  // const qty = nbSneaker;
-  // console.log(qty);
-  // const itemPrice = items.price;
-  // console.log(itemPrice);
-  // const newPrice = qty * itemPrice;
-  // console.log(newPrice);
 
   const initialState = {
     id: items.id,
@@ -36,10 +30,6 @@ function ProductInfo({ name, image, price }) {
   const dispatch = useDispatch();
 
   //comportement --------
-  const handlechange = (e) => {
-    setNbSneakers(Number(e.target.value));
-  };
-
   const addMore = (e) => {
     e.preventDefault();
     setNbSneakers(nbSneaker + 1);
@@ -57,6 +47,7 @@ function ProductInfo({ name, image, price }) {
   const handleclick = (e) => {
     e.preventDefault();
     dispatch(addProduct(newData));
+    // dispatch(addProductToTotalPrice(priceData));
     setNewData(newData);
     toast.success("add to basket !");
   };

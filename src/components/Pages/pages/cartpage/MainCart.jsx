@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Subtotal from "./Subtotal";
@@ -11,9 +10,8 @@ function MainCart() {
   // state ------
   const cartState = useSelector((state) => state.cartItems.cartItems);
   console.log(cartState);
-  const NumberItem = cartState.length;
+
   const dispatch = useDispatch();
-  const [newState, setNewState] = useState(cartState);
 
   //--------------
   const arrayPrice = cartState.map((item) => item.price);
@@ -21,14 +19,13 @@ function MainCart() {
   const arrayQty = cartState.map((item) => item.quantity);
   console.log(arrayQty);
   const totalQtyPrice = arrayPrice * arrayQty;
-  console.log(totalQtyPrice);
-  //--------------
-
   //--------------
   const totalPrice = arrayPrice.reduce((a, b) => a + b, 0);
   console.log(totalPrice);
   const totalQtyItem = arrayQty.reduce((a, b) => a + b, 0);
   console.log(totalQtyItem);
+
+  //--------------
 
   //--------------
 
@@ -42,6 +39,7 @@ function MainCart() {
   // comportement ------
   const handleDelete = (id) => {
     dispatch(deleteProduct(id));
+    // dispatch(deleteProductFromTotalPrice(PriceArray));
   };
 
   return (
@@ -66,7 +64,7 @@ function MainCart() {
           })}
         </div>
       </div>
-      <Subtotal totalPrice={totalPrice} arrayPrice={arrayPrice} />
+      <Subtotal totalPrice={totalPrice} />
     </MainCartStyled>
   );
 }

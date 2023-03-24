@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { BsTrashFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteHeartProduct } from "../../../../redux/slice/cartSlice";
 import { toast } from "react-toastify";
@@ -48,7 +49,7 @@ function MainHeart() {
                 <p>{item.price} €</p>
               </div>
               <div className="button" onClick={() => handleClick(item.id)}>
-                <p>X</p>
+                <BsTrashFill className="icon" />
               </div>
             </div>
           );
@@ -102,7 +103,7 @@ const MainHeartStyled = styled.div`
     .item-shape {
       display: flex;
       flex-direction: row;
-      height: 130px;
+      height: 90px;
       width: 90%;
       /* border: 1px solid black; */
       border-radius: 10px;
@@ -121,7 +122,7 @@ const MainHeartStyled = styled.div`
         justify-content: center;
         align-items: center;
         height: 100%;
-        width: 30%;
+        width: 20%;
 
         img {
           height: 90%;
@@ -165,12 +166,12 @@ const MainHeartStyled = styled.div`
         justify-content: center;
         align-items: center;
         height: 100%;
-        width: 15%;
+        width: 25%;
         background-color: red;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
 
-        p {
+        .icon {
           color: white;
         }
       }

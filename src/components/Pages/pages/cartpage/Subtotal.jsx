@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GoPackage } from "react-icons/go";
 import { MdOutlineDeliveryDining } from "react-icons/md";
@@ -7,9 +7,29 @@ import { Ri24HoursLine } from "react-icons/ri";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import { createSearchParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  deleteProductFromTotalPrice,
+  getLocalStoragePrice,
+} from "../../../../redux/slice/cartSlice";
 
 function Subtotal({ totalPrice }) {
   // state -----------
+  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   if (localStorage.getItem("priceData")) {
+  //     dispatch(getLocalStoragePrice());
+  //   }
+  // }, []);
+
+  // const priceArray = useSelector((state) => state.cartItems.arrayPrice);
+  // console.log(priceArray);
+
+  // const priceTotal = priceArray.map((item) => item.price);
+  // console.log(priceTotal);
+
+  // const finalPrice = priceTotal.reduce((a, b) => a + b, 0);
+  // console.log(finalPrice);
 
   const navigate = useNavigate();
 
@@ -25,6 +45,7 @@ function Subtotal({ totalPrice }) {
           price: totalPrice,
         }).toString(),
       });
+      // dispatch(deleteProductFromTotalPrice(priceTotal));
     }
   };
   return (
