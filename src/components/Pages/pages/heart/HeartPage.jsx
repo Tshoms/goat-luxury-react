@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import heartpicture from "../../../../assets/images/heart2.jpg";
+import blackwhite from "../../../../assets/images/blackwhite.jpg";
 import MainHeart from "./MainHeart";
 
 function HeartPage() {
@@ -18,7 +18,7 @@ const HeartStyled = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url(${heartpicture});
+  background: url(${blackwhite});
   background-size: cover;
   background-position: center;
 

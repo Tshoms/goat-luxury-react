@@ -69,7 +69,7 @@ const MainHeartStyled = styled.div`
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  border: 3px solid red;
+  border: 3px solid white;
 
   .heart-titel {
     display: flex;
@@ -77,12 +77,12 @@ const MainHeartStyled = styled.div`
     align-items: center;
     height: 15%;
     width: 100%;
-    background-color: pink;
+    background-color: black;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 
     p {
-      color: red;
+      color: white;
       font-size: 40px;
       font-family: "Playfair Display", serif;
     }
@@ -167,7 +167,7 @@ const MainHeartStyled = styled.div`
         align-items: center;
         height: 100%;
         width: 25%;
-        background-color: red;
+        background-color: black;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
 
