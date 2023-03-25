@@ -3,6 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cartItems: [],
   heartItems: [],
+  arrayUser: [],
+};
+
+const updateLocalStorageUser = (newUserArray) => {
+  localStorage.setItem("userData", JSON.stringify(newUserArray));
 };
 
 const updateLocalStorage = (newItemArray) => {
@@ -18,11 +23,27 @@ export const cartSlice = createSlice({
   initialState,
 
   reducers: {
+    getLocalStorageUser: (state) => {
+      state.arrayUser = JSON.parse(localStorage.getItem("userData"));
+    },
     getLocalStorageData: (state) => {
       state.cartItems = JSON.parse(localStorage.getItem("itemData"));
     },
     getLocalStorageHeart: (state) => {
       state.heartItems = JSON.parse(localStorage.getItem("HeartData"));
+    },
+
+    getUserName: (state, action) => {
+      const user = { name: action.payload.name };
+      console.log(user);
+      state.arrayUser.push(user);
+      console.log(state.arrayUser);
+      updateLocalStorageUser(state.arrayUser);
+    },
+    deleteUserName: (state) => {
+      state.arrayUser.splice(0, state.arrayUser.length);
+      console.log(state.arrayUser);
+      updateLocalStorageUser(state.arrayUser);
     },
 
     addProduct: (state, action) => {
@@ -85,9 +106,12 @@ export const cartSlice = createSlice({
 
 // export Actions and Reducer -----------
 export const {
+  getUserName,
   addProduct,
+  getLocalStorageUser,
   getLocalStorageData,
   getLocalStorageHeart,
+  deleteUserName,
   deleteProduct,
   getQuantity,
   cleanArray,
