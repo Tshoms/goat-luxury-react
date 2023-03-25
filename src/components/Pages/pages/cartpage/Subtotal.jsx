@@ -63,10 +63,11 @@ const SubtotalStyled = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 40%;
-  border: 3px solid black;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  width: 30%;
+  /* border: 3px solid black; */
+  margin-left: 30px;
+  /* border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px; */
 
   .delivery-title {
     display: flex;
@@ -107,13 +108,13 @@ const SubtotalStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 35%;
+    height: 9%;
     width: 100%;
     background-color: black;
 
     h3 {
       color: white;
-      font-size: 40px;
+      font-size: 30px;
       font-family: "Playfair Display", serif;
     }
   }
@@ -122,9 +123,10 @@ const SubtotalStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 45%;
+    height: 15%;
     width: 100%;
     background-color: white;
+    border: 1px solid black;
 
     h3 {
       color: black;
@@ -140,7 +142,9 @@ const SubtotalStyled = styled.div`
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
       border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
       background-color: black;
+      border: 4px solid black;
       padding: 12px;
 
       :hover {

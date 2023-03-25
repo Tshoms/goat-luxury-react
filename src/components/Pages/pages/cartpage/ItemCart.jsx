@@ -19,7 +19,7 @@ function ItemCart({ id, name, price, image, quantity, onClick }) {
       </div>
       <div className="qty">
         <div className="qty-title">
-          <p>Qty</p>
+          <p>Quantity</p>
         </div>
         <div className="qty-button">
           {/* <TbCircleMinus className="icon"  /> */}
@@ -44,8 +44,10 @@ const ItemStyled = styled.div`
   flex-direction: row;
   height: 95px;
   width: 95%;
-  background-color: #ece9e9;
-  border-radius: 10px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 0px;
+  margin-top: 10px;
   margin-bottom: 15px;
 
   .picture-product {
@@ -59,7 +61,7 @@ const ItemStyled = styled.div`
     img {
       height: 90%;
       width: 95%;
-      border-radius: 10px;
+      border-radius: 0px;
     }
   }
 
@@ -131,15 +133,11 @@ const ItemStyled = styled.div`
     align-items: center;
     height: 100%;
     width: 20%;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
 
     button {
       height: 100%;
       width: 100%;
       background-color: black;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
       border: none;
 
       .icon {

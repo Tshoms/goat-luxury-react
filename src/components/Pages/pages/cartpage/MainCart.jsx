@@ -46,7 +46,7 @@ function MainCart() {
     <MainCartStyled>
       <div className="cart-items">
         <div className="item-qty">
-          <p>Item quantity - {totalQtyItem}</p>
+          <p>Cart - {totalQtyItem}</p>
         </div>
         <div className="show-item">
           {cartState.map((item) => {
@@ -72,8 +72,8 @@ function MainCart() {
 const MainCartStyled = styled.div`
   display: flex;
   flex-direction: row;
-  height: 70%;
-  width: 80%;
+  height: 80%;
+  width: 100%;
 
   .cart-items {
     display: flex;
@@ -81,11 +81,9 @@ const MainCartStyled = styled.div`
     align-items: center; */
     flex-direction: column;
     height: 100%;
-    width: 60%;
-    border: 3px solid black;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    /* overflow-y: scroll; */
+    width: 50%;
+    margin-left: 190px;
+    /* border: 3px solid black; */
 
     .item-qty {
       display: flex;
@@ -103,7 +101,7 @@ const MainCartStyled = styled.div`
     }
 
     .show-item {
-      height: 90%;
+      height: auto;
       width: 100%;
       display: flex;
       justify-content: center;

@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import MainCart from "./MainCart";
-import blackwhite from "../../../../assets/images/blackwhite.jpg";
+// import blackwhite from "../../../../assets/images/blackwhite.jpg";
 
 function Cart() {
   return (
     <CartStyled>
-      <h1>The Goat Luxury</h1>
+      <h1>The Goat Luxuxry</h1>
       <MainCart />
     </CartStyled>
   );
@@ -19,10 +19,10 @@ const CartStyled = styled.div`
   align-items: center;
   height: 100vh;
   /* width: 100%; */
-  background: url(${blackwhite});
+  background-color: white;
 
   h1 {
-    color: white;
+    color: black;
   }
 
   .container {
