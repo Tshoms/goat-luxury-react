@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import MainCart from "./MainCart";
-// import blackwhite from "../../../../assets/images/blackwhite.jpg";
 
 function Cart() {
   return (
@@ -18,7 +17,6 @@ const CartStyled = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* width: 100%; */
   background-color: white;
 
   h1 {

@@ -1,9 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { GoPackage } from "react-icons/go";
-import { MdOutlineDeliveryDining } from "react-icons/md";
-import { SlPlane } from "react-icons/sl";
-import { Ri24HoursLine } from "react-icons/ri";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import { createSearchParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -29,16 +25,6 @@ function Subtotal({ totalPrice }) {
   };
   return (
     <SubtotalStyled>
-      {/* <div className="delivery-title">
-        <h3>Delivery in </h3>
-        <Ri24HoursLine className="icon-hours" />
-        <h3>hours </h3>
-      </div>
-      <div className="delivery-div">
-        <SlPlane className="icon" />
-        <MdOutlineDeliveryDining className="icon" />
-        <GoPackage className="icon" />
-      </div> */}
       <div className="subtotal-p">
         <h3>Subtotal</h3>
       </div>
@@ -66,43 +52,6 @@ const SubtotalStyled = styled.div`
   width: 30%;
   /* border: 3px solid black; */
   margin-left: 30px;
-  /* border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px; */
-
-  .delivery-title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 20%;
-    width: 100%;
-    padding-left: 20px;
-
-    h3 {
-      font-size: 40px;
-      font-family: "Playfair Display", serif;
-    }
-
-    .icon-hours {
-      font-size: 50px;
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-  }
-
-  .delivery-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    height: 30%;
-    width: 100%;
-    border: 1px solid black;
-
-    .icon {
-      color: black;
-      font-size: 65px;
-    }
-  }
 
   .subtotal-p {
     display: flex;

@@ -105,12 +105,10 @@ const MainHeartStyled = styled.div`
       flex-direction: row;
       height: 90px;
       width: 90%;
-      /* border: 1px solid black; */
-      border-radius: 10px;
+      border: 2px solid black;
+
       margin-top: 7px;
       margin-bottom: 7px;
-      /* background-color: #f6ddcc; */
-      box-shadow: 0 0 7px rgba(18, 18, 18, 0.5);
 
       p {
         color: black;
@@ -127,7 +125,6 @@ const MainHeartStyled = styled.div`
         img {
           height: 90%;
           width: 90%;
-          border-radius: 10px;
         }
       }
 
@@ -168,8 +165,6 @@ const MainHeartStyled = styled.div`
         height: 100%;
         width: 25%;
         background-color: black;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
 
         .icon {
           color: white;

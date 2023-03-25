@@ -10,7 +10,9 @@ function Profile({ userName }) {
         <BiUser className="icon" />
       </div>
       <div className="username">
-        <p>Hey, {userName}</p>
+        <p>
+          Hey, <span>{userName}</span>
+        </p>
         <Link to={"/"}>
           <div className="logout">
             <p>déconnexion</p>
@@ -50,6 +52,10 @@ const ProfileStyled = styled.div`
     height: 100%;
     width: 67%;
     /* border: 1px solid blue; */
+
+    span {
+      font-weight: bold;
+    }
 
     .logout {
       height: 30%;
