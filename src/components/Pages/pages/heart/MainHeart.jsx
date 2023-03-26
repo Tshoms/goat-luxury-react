@@ -125,6 +125,7 @@ const MainHeartStyled = styled.div`
         img {
           height: 90%;
           width: 90%;
+          border: 1px solid black;
         }
       }
 

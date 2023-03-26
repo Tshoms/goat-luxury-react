@@ -97,14 +97,11 @@ function ProductInfo({ name, image, price }) {
 const MainLeftSideStyled = styled.div`
   height: 100%;
   width: 100%;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  /* border: 1px solid black; */
+  border: 3px solid black;
   .item-name {
     height: 10%;
     width: 100%;
     /* border: 1px solid black; */
-    border-top-left-radius: 20px;
 
     h2 {
       color: black;
@@ -147,6 +144,11 @@ const MainLeftSideStyled = styled.div`
       height: 100%;
       width: 10%;
       /* border: 1px solid green; */
+
+      p {
+        font-family: "Playfair Display", serif;
+        font-size: 15px;
+      }
 
       span {
         font-size: 30px;
@@ -193,10 +195,8 @@ const MainLeftSideStyled = styled.div`
       /* border: 1px solid green; */
 
       .button-mainproduct {
-        padding: 47px;
+        padding: 30px;
         border-radius: 0px;
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
 
         label {
           font-size: 20px;

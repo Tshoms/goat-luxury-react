@@ -62,6 +62,7 @@ const ItemStyled = styled.div`
       height: 90%;
       width: 95%;
       border-radius: 0px;
+      border: 1px solid black;
     }
   }
 
@@ -91,6 +92,10 @@ const ItemStyled = styled.div`
       align-items: center;
       height: 50%;
       width: 100%;
+
+      p {
+        font-family: "Playfair Display", serif;
+      }
     }
 
     .qty-button {
