@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Subtotal from "./Subtotal";
 import ItemCart from "./ItemCart";
-import {
-  deleteProduct,
-  getLocalStorageData,
-} from "../../../../redux/slice/cartSlice";
+import { getLocalStorageData } from "../../../../redux/slice/cartSlice";
+import { deleteProduct } from "../../../../redux/slice/cartSlice.jsx";
 
 function MainCart() {
   // state ------
   const cartState = useSelector((state) => state.cartItems.cartItems);
   console.log(cartState);
-  const NumberItem = cartState.length;
+
   const dispatch = useDispatch();
-  const [newState, setNewState] = useState(cartState);
 
   //--------------
-  const arrayPrice = cartState.map((item) => item.newprice);
+  const arrayPrice = cartState.map((item) => item.price);
   console.log(arrayPrice);
-  //--------------
-  const [qty, setQty] = useState(1);
-
+  const arrayQty = cartState.map((item) => item.quantity);
+  console.log(arrayQty);
+  const totalQtyPrice = arrayPrice * arrayQty;
   //--------------
   const totalPrice = arrayPrice.reduce((a, b) => a + b, 0);
   console.log(totalPrice);
+  const totalQtyItem = arrayQty.reduce((a, b) => a + b, 0);
+  console.log(totalQtyItem);
+
+  //--------------
 
   //--------------
 
@@ -37,19 +37,16 @@ function MainCart() {
   }, []);
 
   // comportement ------
-
-  const handledelete = (e) => {
-    e.preventDefault();
-    dispatch(deleteProduct(newState));
-    setNewState(newState);
-    toast.error("delete item 🗑 !");
-    console.log(newState);
+  const handleDelete = (id) => {
+    dispatch(deleteProduct(id));
+    // dispatch(deleteProductFromTotalPrice(PriceArray));
   };
+
   return (
     <MainCartStyled>
       <div className="cart-items">
         <div className="item-qty">
-          <p>Item quantity - {NumberItem}</p>
+          <p>Cart - {totalQtyItem}</p>
         </div>
         <div className="show-item">
           {cartState.map((item) => {
@@ -57,16 +54,17 @@ function MainCart() {
               <ItemCart
                 id={item.id}
                 name={item.name}
-                price={item.newprice}
+                price={item.price}
                 image={item.image}
-                totalPrice={totalPrice}
-                onClick={handledelete}
+                totalQtyPrice={totalQtyPrice}
+                quantity={item.quantity}
+                onClick={() => handleDelete(item.id)}
               />
             );
           })}
         </div>
       </div>
-      <Subtotal totalPrice={totalPrice} qty={qty} arrayPrice={arrayPrice} />
+      <Subtotal totalPrice={totalPrice} />
     </MainCartStyled>
   );
 }
@@ -74,8 +72,8 @@ function MainCart() {
 const MainCartStyled = styled.div`
   display: flex;
   flex-direction: row;
-  height: 600px;
-  width: 80%;
+  height: 80%;
+  width: 100%;
 
   .cart-items {
     display: flex;
@@ -83,11 +81,9 @@ const MainCartStyled = styled.div`
     align-items: center; */
     flex-direction: column;
     height: 100%;
-    width: 60%;
-    border: 3px solid black;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    /* overflow-y: scroll; */
+    width: 50%;
+    margin-left: 190px;
+    /* border: 3px solid black; */
 
     .item-qty {
       display: flex;
@@ -105,13 +101,14 @@ const MainCartStyled = styled.div`
     }
 
     .show-item {
-      height: 90%;
+      height: auto;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       overflow-y: scroll;
+      background-color: white;
     }
   }
 `;

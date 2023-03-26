@@ -29,14 +29,11 @@ function MainProductShow() {
 const MainProductShowStyled = styled.div`
   display: flex;
   flex-direction: row;
-  height: 54%;
+  height: 90%;
   width: 40%;
   background-color: white;
   margin: 40px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+
   /* border: 1px solid black; */
   box-shadow: 0 0 7px rgba(20, 20, 20, 0.5);
 `;

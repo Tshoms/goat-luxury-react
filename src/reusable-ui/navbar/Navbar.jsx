@@ -3,7 +3,7 @@ import styled from "styled-components";
 import NavbarLeftSide from "./NavbarLeftSide";
 import NavbarRightSide from "./NavbarRightSide";
 
-function Navbar({ userName, notifCart }) {
+function Navbar({ userName, notifCart, notifHeart }) {
   // getName -----
 
   // -------------
@@ -11,7 +11,11 @@ function Navbar({ userName, notifCart }) {
     <NavbarStyled>
       <NavbarLeftSide />
 
-      <NavbarRightSide userName={userName} notifCart={notifCart} />
+      <NavbarRightSide
+        userName={userName}
+        notifCart={notifCart}
+        notifHeart={notifHeart}
+      />
     </NavbarStyled>
   );
 }

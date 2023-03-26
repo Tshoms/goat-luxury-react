@@ -1,13 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import PrimaryButton from "../reusable-ui/PrimaryButton";
 import { AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import {
+  addHeartProduct,
+  getLocalStorageHeart,
+} from "../redux/slice/cartSlice";
+import { toast } from "react-toastify";
+
 function Card({ id, name, image, price }) {
   // state ------
-  const [conteur, setConteur] = useState(0);
+  const [color, setColor] = useState("white");
+
+  const favArray = useSelector((state) => state.cartItems.heartItems);
+  console.log(favArray);
+  const notifHeart = favArray.length;
+  console.log(notifHeart);
+
   // comportement --------
-  const handleClick = () => {};
+  const initialState = {
+    id: id,
+    name: name,
+    image: image,
+    price: price,
+  };
+  console.log(initialState);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (localStorage.getItem("HeartData")) {
+      dispatch(getLocalStorageHeart());
+    }
+  }, []);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const arrayCopy = favArray.find((e) => e.id === initialState.id);
+    if (arrayCopy) {
+      toast.error("Sorry Item add before...");
+    } else {
+      setColor("red");
+      dispatch(addHeartProduct(initialState));
+      toast.success(`add to wishlist 💝 !`);
+      console.log("to favorite !!!");
+    }
+  };
+
   return (
     <CardStyled>
       <div className="img-products">
@@ -16,18 +57,18 @@ function Card({ id, name, image, price }) {
       <div className="title-products">{name}</div>
       <Link to={{ pathname: `/produit/${id}` }}>
         <div className="button-container">
-          <PrimaryButton
-            label="info"
-            className="button-card"
-            onClick={handleClick}
-          />
+          <PrimaryButton label="info" className="button-card" />
         </div>
       </Link>
       <div className="price">
         <span>{price} $</span>
       </div>
       <div className="favorite">
-        <AiFillHeart className="favorite-heart" />
+        <AiFillHeart
+          className="favorite-heart"
+          style={{ color: color }}
+          onClick={handleClick}
+        />
       </div>
     </CardStyled>
   );
@@ -106,8 +147,10 @@ const CardStyled = styled.div`
     right: 0;
 
     .favorite-heart {
-      color: black;
       font-size: 23px;
+
+      :hover {
+      }
     }
   }
 `;

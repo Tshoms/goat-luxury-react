@@ -5,7 +5,7 @@ import { FaRegHeart } from "react-icons/fa";
 import Profile from "../Profile";
 import { Link } from "react-router-dom";
 
-function NavbarRightSide({ userName, notifCart }) {
+function NavbarRightSide({ userName, notifCart, notifHeart }) {
   return (
     <NavbarRightSideStyled>
       <Profile userName={userName} />
@@ -16,8 +16,10 @@ function NavbarRightSide({ userName, notifCart }) {
         <span>{notifCart}</span>
       </div>
       <div className="heartlogo">
-        <FaRegHeart className="icon-heart" />
-        <span>0</span>
+        <Link to={{ pathname: "/Favori" }}>
+          <FaRegHeart className="icon-heart" />
+        </Link>
+        <span>{notifHeart}</span>
       </div>
     </NavbarRightSideStyled>
   );

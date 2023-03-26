@@ -7,6 +7,7 @@ import LoginPage from "./components/Pages/login/LoginPage";
 import ProductShowCase from "./components/Pages/pages/productpage/ProductShowCase";
 import Cart from "./components/Pages/pages/cartpage/Cart";
 import DeliveryOrder from "./components/Pages/pages/delivery/DeliveryOrder";
+import HeartPage from "./components/Pages/pages/heart/HeartPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/produit/:id" element={<ProductShowCase />} />
         <Route path="/panier" element={<Cart />} />
         <Route path="/payment/:price" element={<DeliveryOrder />} />
+        <Route path="/favori" element={<HeartPage />} />
       </Routes>
       <ToastContainer />
     </div>

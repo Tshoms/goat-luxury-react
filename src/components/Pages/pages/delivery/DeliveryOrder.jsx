@@ -2,10 +2,20 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GoVerified } from "react-icons/go";
 import Loading from "./Loading";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import {
+  createSearchParams,
+  Link,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import { useDispatch, useSelector } from "react-redux";
-import { cleanArray } from "../../../../redux/slice/cartSlice";
+import {
+  cleanArray,
+  deleteUserName,
+  getLocalStorageUser,
+  getUserName,
+} from "../../../../redux/slice/cartSlice";
 
 function DeliveryOrder() {
   // state -----------
@@ -16,7 +26,12 @@ function DeliveryOrder() {
 
   const arrayItem = useSelector((state) => state.cartItems.cartItems);
   console.log(arrayItem);
-
+  //----------------
+  const arrayUser = useSelector((state) => state.cartItems.arrayUser);
+  console.log(arrayUser);
+  const name = arrayUser.map((item) => item.name);
+  console.log(name);
+  //----------------
   const dispatch = useDispatch();
 
   // comportement ----------
@@ -25,15 +40,23 @@ function DeliveryOrder() {
   const arrayNumber = Math.floor(Math.random() * (600 - 500 + 1) + 500);
   console.log(arrayNumber);
 
+  createSearchParams();
   const backHome = (e) => {
     e.preventDefault();
     dispatch(cleanArray(arrayItem));
+    // dispatch(deleteUserName(arrayUser));
     navigate({
-      pathname: `/`,
+      pathname: `/acceuil/:user`,
+      search: createSearchParams({
+        userName: name,
+      }).toString(),
     });
   };
 
   useEffect(() => {
+    if (localStorage.getItem("userData")) {
+      dispatch(getLocalStorageUser());
+    }
     setInterval(() => {
       setLoader(false);
     }, 3000);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { toast } from "react-toastify";
 import { sneakers } from "../../../../../fakedata/ProductsData.jsx";
 import { addProduct } from "../../../../../redux/slice/cartSlice.jsx";
@@ -13,12 +14,6 @@ function ProductInfo({ name, image, price }) {
   const items = sneakers.find((item) => item.id === parseInt(id));
   // qty --------------
   const [nbSneaker, setNbSneakers] = useState(1);
-  const qty = nbSneaker;
-  console.log(qty);
-  const itemPrice = items.price;
-  console.log(itemPrice);
-  const newPrice = qty * itemPrice;
-  console.log(newPrice);
 
   const initialState = {
     id: items.id,
@@ -27,7 +22,7 @@ function ProductInfo({ name, image, price }) {
     image: items.image,
   };
 
-  initialState.newprice = newPrice;
+  initialState.quantity = nbSneaker;
   console.log(initialState);
   //----------------------
   const [newData, setNewData] = useState(initialState);
@@ -35,13 +30,24 @@ function ProductInfo({ name, image, price }) {
   const dispatch = useDispatch();
 
   //comportement --------
-  const handlechange = (e) => {
-    setNbSneakers(Number(e.target.value));
+  const addMore = (e) => {
+    e.preventDefault();
+    setNbSneakers(nbSneaker + 1);
+  };
+
+  const lowQty = (e) => {
+    e.preventDefault();
+    if (nbSneaker === 1) {
+      toast.error("you have one quantity...");
+    } else {
+      setNbSneakers(nbSneaker - 1);
+    }
   };
 
   const handleclick = (e) => {
     e.preventDefault();
     dispatch(addProduct(newData));
+    // dispatch(addProductToTotalPrice(priceData));
     setNewData(newData);
     toast.success("add to basket !");
   };
@@ -59,6 +65,18 @@ function ProductInfo({ name, image, price }) {
       </div>
       <div className="price-container">
         <h3>Price : {price} €</h3>
+      </div>
+      <div className="quantity">
+        <div className="more" onClick={addMore}>
+          <AiOutlinePlusCircle className="icon" />
+        </div>
+        <div className="qty-container">
+          <p>Quantity</p>
+          <span>{nbSneaker}</span>
+        </div>
+        <div className="low" onClick={lowQty}>
+          <AiOutlineMinusCircle className="icon" />
+        </div>
       </div>
       <div className="add-cart">
         <div className="add-container">
@@ -79,14 +97,11 @@ function ProductInfo({ name, image, price }) {
 const MainLeftSideStyled = styled.div`
   height: 100%;
   width: 100%;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  /* border: 1px solid black; */
+  border: 3px solid black;
   .item-name {
-    height: 81px;
+    height: 10%;
     width: 100%;
     /* border: 1px solid black; */
-    border-top-left-radius: 20px;
 
     h2 {
       color: black;
@@ -94,7 +109,7 @@ const MainLeftSideStyled = styled.div`
   }
 
   .item-picture {
-    height: 300px;
+    height: 40%;
     width: 100%;
     /* border: 1px solid black; */
     img {
@@ -104,7 +119,7 @@ const MainLeftSideStyled = styled.div`
   }
 
   .price-container {
-    height: 60px;
+    height: 10%;
     width: 100%;
     /* border: 1px solid red; */
 
@@ -114,8 +129,52 @@ const MainLeftSideStyled = styled.div`
     }
   }
 
+  .quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    /* border: 1px solid red; */
+
+    .qty-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 10%;
+      /* border: 1px solid green; */
+
+      p {
+        font-family: "Playfair Display", serif;
+        font-size: 15px;
+      }
+
+      span {
+        font-size: 30px;
+      }
+    }
+    .more {
+      display: none;
+      height: 100%;
+      width: 20%;
+      /* border: 1px solid red; */
+    }
+
+    .low {
+      display: none;
+      height: 100%;
+      width: 20%;
+      /* border: 1px solid red; */
+    }
+
+    .icon {
+      font-size: 30px;
+    }
+  }
+
   .add-cart {
-    height: 185px;
+    height: 10%;
     width: 100%;
     /* border: 1px solid red; */
 
@@ -132,14 +191,12 @@ const MainLeftSideStyled = styled.div`
     }
 
     .button {
-      height: 105px;
+      height: 10%;
       /* border: 1px solid green; */
 
       .button-mainproduct {
-        padding: 47px;
+        padding: 30px;
         border-radius: 0px;
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
 
         label {
           font-size: 20px;

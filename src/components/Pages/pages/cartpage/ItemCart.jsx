@@ -1,27 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
+import { BsTrashFill } from "react-icons/bs";
+
 import { TbCircleMinus, TbCirclePlus } from "react-icons/tb";
 
-function ItemCart({ name, price, image, onClick }) {
+function ItemCart({ id, name, price, image, quantity, onClick }) {
   // state --------
-  const [qty, setQty] = useState(1);
-  const totalPriceItem = qty * price;
+
   // comportement -------
 
-  const addQty = (e) => {
-    e.preventDefault();
-    setQty(qty + 1);
-    console.log(qty);
-    // dispatch(getQuantity(initialState));
-  };
-
-  const lowQty = (e) => {
-    e.preventDefault();
-    setQty(qty - 1);
-  };
-
   return (
-    <ItemStyled>
+    <ItemStyled key={id}>
       <div className="picture-product">
         <img src={image} alt="" />
       </div>
@@ -30,20 +19,20 @@ function ItemCart({ name, price, image, onClick }) {
       </div>
       <div className="qty">
         <div className="qty-title">
-          <p>Qty</p>
+          <p>Quantity</p>
         </div>
         <div className="qty-button">
-          <TbCircleMinus className="icon" onClick={lowQty} />
-          <span>{qty}</span>
-          <TbCirclePlus className="icon" onClick={addQty} />
+          {/* <TbCircleMinus className="icon"  /> */}
+          <span>{quantity}</span>
+          {/* <TbCirclePlus className="icon"  /> */}
         </div>
       </div>
       <div className="price-product">
-        <p>{totalPriceItem} €</p>
+        <p>{price} €</p>
       </div>
       <div className="button-delete">
         <button onClick={onClick}>
-          <p>X</p>
+          <BsTrashFill className="icon" />
         </button>
       </div>
     </ItemStyled>
@@ -53,10 +42,12 @@ function ItemCart({ name, price, image, onClick }) {
 const ItemStyled = styled.div`
   display: flex;
   flex-direction: row;
-  height: 125px;
+  height: 95px;
   width: 95%;
-  background-color: #ece9e9;
-  border-radius: 10px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 0px;
+  margin-top: 10px;
   margin-bottom: 15px;
 
   .picture-product {
@@ -64,13 +55,14 @@ const ItemStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 25%;
+    width: 35%;
     /* border: 1px solid black; */
 
     img {
       height: 90%;
       width: 95%;
-      border-radius: 10px;
+      border-radius: 0px;
+      border: 1px solid black;
     }
   }
 
@@ -88,10 +80,10 @@ const ItemStyled = styled.div`
   }
 
   .qty {
-    display: none;
+    /* display: none; */
     flex-direction: column;
     height: 100%;
-    width: 30%;
+    width: 20%;
     /* border: 1px solid black; */
 
     .qty-title {
@@ -100,6 +92,10 @@ const ItemStyled = styled.div`
       align-items: center;
       height: 50%;
       width: 100%;
+
+      p {
+        font-family: "Playfair Display", serif;
+      }
     }
 
     .qty-button {
@@ -128,7 +124,8 @@ const ItemStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 40%;
+    width: 30%;
+    /* border: 1px solid black; */
 
     p {
       font-size: 20px;
@@ -140,19 +137,15 @@ const ItemStyled = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 10%;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    width: 20%;
 
     button {
       height: 100%;
       width: 100%;
-      background-color: red;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
+      background-color: black;
       border: none;
 
-      p {
+      .icon {
         font-size: 15px;
         color: white;
       }

@@ -16,6 +16,16 @@ function Home() {
 
   const arrayCart = useSelector((state) => state.cartItems.cartItems);
   console.log(arrayCart);
+  const numberQty = arrayCart.map((item) => item.quantity);
+  console.log(numberQty);
+  const notifQty = numberQty.reduce((a, b) => a + b, 0);
+  console.log(notifQty);
+  // -------
+
+  const favArray = useSelector((state) => state.cartItems.heartItems);
+  console.log(favArray);
+  const notifHeart = favArray.length;
+  console.log(notifHeart);
   // localStorage -----------
 
   useEffect(() => {
@@ -24,12 +34,13 @@ function Home() {
     }
   }, []);
 
-  const notifCart = arrayCart.length;
-  console.log(notifCart);
-
   return (
     <HomeStyled>
-      <Navbar userName={userName} notifCart={notifCart} />
+      <Navbar
+        userName={userName}
+        notifCart={notifQty}
+        notifHeart={notifHeart}
+      />
       <Head />
       <Article />
       <Main />

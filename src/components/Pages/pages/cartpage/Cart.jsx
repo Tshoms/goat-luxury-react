@@ -5,7 +5,7 @@ import MainCart from "./MainCart";
 function Cart() {
   return (
     <CartStyled>
-      <h1>The Goat Luxury</h1>
+      <h1>The Goat Luxuxry</h1>
       <MainCart />
     </CartStyled>
   );
@@ -16,8 +16,8 @@ const CartStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: auto;
-  width: 100%;
+  height: 100vh;
+  background-color: white;
 
   h1 {
     color: black;
