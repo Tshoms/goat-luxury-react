@@ -9,12 +9,7 @@ import { getLocalStorageHeart } from "../../../../redux/slice/cartSlice.jsx";
 function MainHeart() {
   // state ------------
   const arrayHeart = useSelector((state) => state.cartItems.heartItems);
-  console.log(arrayHeart);
-
   const notifArray = arrayHeart.length;
-  // console.log(notifArray);
-
-  const [newArray, setNewArray] = useState(arrayHeart);
 
   const dispatch = useDispatch();
 

@@ -15,9 +15,7 @@ function Card({ id, name, image, price }) {
   const [color, setColor] = useState("white");
 
   const favArray = useSelector((state) => state.cartItems.heartItems);
-  console.log(favArray);
   const notifHeart = favArray.length;
-  console.log(notifHeart);
 
   // comportement --------
   const initialState = {
@@ -26,7 +24,6 @@ function Card({ id, name, image, price }) {
     image: image,
     price: price,
   };
-  console.log(initialState);
 
   const dispatch = useDispatch();
 
@@ -45,7 +42,6 @@ function Card({ id, name, image, price }) {
       setColor("red");
       dispatch(addHeartProduct(initialState));
       toast.success(`add to wishlist 💝 !`);
-      console.log("to favorite !!!");
     }
   };
 

@@ -35,6 +35,10 @@ const ProductShowCaseStyled = styled.div`
   background-color: #d9d9d9;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 1210px) {
+    display: none;
+  }
 `;
 
 export default ProductShowCase;

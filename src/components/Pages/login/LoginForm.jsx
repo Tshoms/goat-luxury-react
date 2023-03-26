@@ -17,7 +17,6 @@ function LoginForm() {
   const NameUser = {
     name: userName,
   };
-  console.log(NameUser);
 
   const navigate = useNavigate();
 

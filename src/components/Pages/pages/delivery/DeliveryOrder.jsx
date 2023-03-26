@@ -4,7 +4,6 @@ import { GoVerified } from "react-icons/go";
 import Loading from "./Loading";
 import {
   createSearchParams,
-  Link,
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
@@ -12,9 +11,7 @@ import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
 import { useDispatch, useSelector } from "react-redux";
 import {
   cleanArray,
-  deleteUserName,
   getLocalStorageUser,
-  getUserName,
 } from "../../../../redux/slice/cartSlice";
 
 function DeliveryOrder() {
@@ -25,12 +22,11 @@ function DeliveryOrder() {
   const navigate = useNavigate();
 
   const arrayItem = useSelector((state) => state.cartItems.cartItems);
-  console.log(arrayItem);
+
   //----------------
   const arrayUser = useSelector((state) => state.cartItems.arrayUser);
-  console.log(arrayUser);
   const name = arrayUser.map((item) => item.name);
-  console.log(name);
+
   //----------------
   const dispatch = useDispatch();
 
@@ -38,13 +34,11 @@ function DeliveryOrder() {
   const [loader, setLoader] = useState(true);
 
   const arrayNumber = Math.floor(Math.random() * (600 - 500 + 1) + 500);
-  console.log(arrayNumber);
 
   createSearchParams();
   const backHome = (e) => {
     e.preventDefault();
     dispatch(cleanArray(arrayItem));
-    // dispatch(deleteUserName(arrayUser));
     navigate({
       pathname: `/acceuil/:user`,
       search: createSearchParams({
@@ -98,6 +92,10 @@ const DeliveryOrderStyled = styled.div`
   align-items: center;
   h1 {
     color: rgb(0, 0, 0);
+  }
+
+  @media (max-width: 1210px) {
+    display: none;
   }
 
   .order-container {

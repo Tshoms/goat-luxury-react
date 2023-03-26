@@ -9,25 +9,15 @@ import { deleteProduct } from "../../../../redux/slice/cartSlice.jsx";
 function MainCart() {
   // state ------
   const cartState = useSelector((state) => state.cartItems.cartItems);
-  console.log(cartState);
-
   const dispatch = useDispatch();
 
   //--------------
   const arrayPrice = cartState.map((item) => item.price);
-  console.log(arrayPrice);
   const arrayQty = cartState.map((item) => item.quantity);
-  console.log(arrayQty);
   const totalQtyPrice = arrayPrice * arrayQty;
   //--------------
   const totalPrice = arrayPrice.reduce((a, b) => a + b, 0);
-  console.log(totalPrice);
   const totalQtyItem = arrayQty.reduce((a, b) => a + b, 0);
-  console.log(totalQtyItem);
-
-  //--------------
-
-  //--------------
 
   // localStorage -----------
   useEffect(() => {

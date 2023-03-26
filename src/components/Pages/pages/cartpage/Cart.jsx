@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Footer from "../../../../reusable-ui/Footer";
 import MainCart from "./MainCart";
 
 function Cart() {
@@ -7,6 +8,7 @@ function Cart() {
     <CartStyled>
       <h1>The Goat Luxuxry</h1>
       <MainCart />
+      {/* <Footer /> */}
     </CartStyled>
   );
 }
@@ -18,6 +20,10 @@ const CartStyled = styled.div`
   align-items: center;
   height: 100vh;
   background-color: white;
+
+  @media (max-width: 1210px) {
+    display: none;
+  }
 
   h1 {
     color: black;
