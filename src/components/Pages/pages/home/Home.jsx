@@ -7,6 +7,7 @@ import Article from "./Article";
 import Main from "./Main";
 import { useSelector, useDispatch } from "react-redux";
 import { getLocalStorageData } from "../../../../redux/slice/cartSlice";
+import Footer from "./Footer";
 
 function Home() {
   // state --------
@@ -44,6 +45,7 @@ function Home() {
       <Head />
       <Article />
       <Main />
+      <Footer />
     </HomeStyled>
   );
 }
