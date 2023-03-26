@@ -1,9 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUserName } from "../redux/slice/cartSlice";
 
 function Profile({ userName }) {
+  // state -----------------------
+  const arrayUser = useSelector((state) => state.cartItems.arrayUser);
+  console.log(arrayUser);
+  // comportement ----------------
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleclick = (e) => {
+    e.preventDefault();
+    dispatch(deleteUserName(arrayUser));
+    navigate({
+      pathname: "/",
+    });
+  };
+  //------------------------------
   return (
     <ProfileStyled>
       <div className="userlogo">
@@ -13,11 +29,10 @@ function Profile({ userName }) {
         <p>
           Hey, <span>{userName}</span>
         </p>
-        <Link to={"/"}>
-          <div className="logout">
-            <p>déconnexion</p>
-          </div>
-        </Link>
+
+        <div className="logout" onClick={handleclick}>
+          <p>déconnexion</p>
+        </div>
       </div>
     </ProfileStyled>
   );
@@ -63,6 +78,7 @@ const ProfileStyled = styled.div`
       /* border: 1px solid pink; */
       text-decoration: none;
       color: black;
+      cursor: pointer;
     }
   }
 `;
