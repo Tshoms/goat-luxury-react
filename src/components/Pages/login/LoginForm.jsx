@@ -50,7 +50,7 @@ function LoginForm() {
   return (
     <LoginFromStyle onSubmit={handleSubmit}>
       <hr />
-      <h2>Connectez-vous</h2>
+      <h2>Login</h2>
 
       <TextInput
         placeholder="entrez votre prénom..."
@@ -58,7 +58,7 @@ function LoginForm() {
         value={userName}
         onChange={handleChange}
       />
-      <PrimaryButton label={"Accéder à votre profile"} />
+      <PrimaryButton label={"Access your profile"} />
     </LoginFromStyle>
   );
 }

@@ -60,10 +60,6 @@ const MainHeartStyled = styled.div`
   height: 80%;
   width: 60%;
   background-color: white;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   border: 3px solid white;
 
   .heart-titel {
@@ -73,8 +69,6 @@ const MainHeartStyled = styled.div`
     height: 15%;
     width: 100%;
     background-color: black;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
 
     p {
       color: white;
@@ -90,9 +84,6 @@ const MainHeartStyled = styled.div`
     align-items: center;
     height: 85%;
     width: 100%;
-    border: 1px solid grey;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
     overflow-y: scroll;
 
     .item-shape {

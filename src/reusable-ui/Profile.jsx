@@ -31,7 +31,7 @@ function Profile({ userName }) {
         </p>
 
         <div className="logout" onClick={handleclick}>
-          <p>déconnexion</p>
+          <p>logout</p>
         </div>
       </div>
     </ProfileStyled>
