@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { BiWorld } from "react-icons/bi";
+import Blob from "../assets/images/blob.png";
 
 function Footer() {
   return (
@@ -55,14 +56,7 @@ function Footer() {
           </div>
           <div className="brand">
             <div className="logo-container">
-              <h2>Logo.</h2>
-              {/* <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill="#FF0066"
-                    d="M44.3,-21C57.6,-2.5,68.8,21.8,61,38.1C53.3,54.5,26.6,62.9,-1.1,63.5C-28.8,64.1,-57.5,57,-69,38.5C-80.4,20,-74.6,-9.8,-60.2,-29C-45.8,-48.1,-22.9,-56.5,-3.7,-54.4C15.5,-52.2,31,-39.5,44.3,-21Z"
-                    transform="translate(100 100)"
-                  />
-                </svg> */}
+              <h2>M.Tshoms</h2>
             </div>
           </div>
           <div className="network">
@@ -144,9 +138,13 @@ const FooterStyled = styled.div`
         /* border: 1px solid white; */
 
         .logo-container {
-          height: 90%;
-          width: 90%;
+          height: 100%;
+          width: 85%;
           /* border: 1px solid white; */
+          background: url(${Blob});
+          background-position: center;
+          background-size: 75%;
+          padding-top: 5px;
 
           .h2 {
             color: white;
