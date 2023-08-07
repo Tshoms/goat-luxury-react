@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import PrimaryButton from "../reusable-ui/PrimaryButton";
 import { AiFillHeart } from "react-icons/ai";
+// import { IoIosAddCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
 import {
   addHeartProduct,
@@ -15,9 +16,7 @@ function Card({ id, name, image, price }) {
   const [color, setColor] = useState("white");
 
   const favArray = useSelector((state) => state.cartItems.heartItems);
-  console.log(favArray);
-  const notifHeart = favArray.length;
-  console.log(notifHeart);
+  // const notifHeart = favArray.length;
 
   // comportement --------
   const initialState = {
@@ -26,7 +25,6 @@ function Card({ id, name, image, price }) {
     image: image,
     price: price,
   };
-  console.log(initialState);
 
   const dispatch = useDispatch();
 
@@ -45,7 +43,6 @@ function Card({ id, name, image, price }) {
       setColor("red");
       dispatch(addHeartProduct(initialState));
       toast.success(`add to wishlist 💝 !`);
-      console.log("to favorite !!!");
     }
   };
 
@@ -70,6 +67,10 @@ function Card({ id, name, image, price }) {
           onClick={handleClick}
         />
       </div>
+
+      {/* <div className="add">
+        <IoIosAddCircle className="add-icon" />
+      </div> */}
     </CardStyled>
   );
 }
@@ -139,20 +140,29 @@ const CardStyled = styled.div`
     align-items: center;
     height: 30px;
     width: 50px;
-    /* background-color: black; */
     color: transparent;
-    /* border: 1px solid white; */
     border-radius: 10px;
     position: absolute;
     right: 0;
+    cursor: pointer;
 
     .favorite-heart {
       font-size: 23px;
-
-      :hover {
-      }
     }
   }
+  /* .add {
+    height: 30px;
+    width: 50px;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    cursor: pointer;
+
+    .add-icon {
+      font-size: 25px;
+      color: black;
+    }
+  } */
 `;
 
 export default Card;

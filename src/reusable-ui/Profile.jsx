@@ -8,7 +8,7 @@ import { deleteUserName } from "../redux/slice/cartSlice";
 function Profile({ userName }) {
   // state -----------------------
   const arrayUser = useSelector((state) => state.cartItems.arrayUser);
-  console.log(arrayUser);
+
   // comportement ----------------
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ function Profile({ userName }) {
         </p>
 
         <div className="logout" onClick={handleclick}>
-          <p>déconnexion</p>
+          <p>logout</p>
         </div>
       </div>
     </ProfileStyled>

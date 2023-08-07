@@ -21,12 +21,10 @@ function ProductInfo({ name, image, price }) {
     price: items.price,
     image: items.image,
   };
-
   initialState.quantity = nbSneaker;
-  console.log(initialState);
+
   //----------------------
   const [newData, setNewData] = useState(initialState);
-  console.log(newData);
   const dispatch = useDispatch();
 
   //comportement --------
@@ -47,13 +45,9 @@ function ProductInfo({ name, image, price }) {
   const handleclick = (e) => {
     e.preventDefault();
     dispatch(addProduct(newData));
-    // dispatch(addProductToTotalPrice(priceData));
     setNewData(newData);
     toast.success("add to basket !");
   };
-
-  const cartState = useSelector((state) => state.cartItems.cartItems);
-  console.log(cartState);
 
   return (
     <MainLeftSideStyled>

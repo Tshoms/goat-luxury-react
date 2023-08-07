@@ -54,3 +54,11 @@ h2 {
   margin-top: 25px;
   margin-bottom: 15px;
 }
+
+/* ---- media Querie ---- */
+
+@media (max-width: 1210px) {
+  .main-home {
+    display: none;
+  }
+}

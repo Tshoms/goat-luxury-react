@@ -37,12 +37,12 @@ export const cartSlice = createSlice({
       const user = { name: action.payload.name };
       console.log(user);
       state.arrayUser.push(user);
-      console.log(state.arrayUser);
+
       updateLocalStorageUser(state.arrayUser);
     },
     deleteUserName: (state) => {
       state.arrayUser.splice(0, state.arrayUser.length);
-      console.log(state.arrayUser);
+
       updateLocalStorageUser(state.arrayUser);
     },
 
@@ -50,10 +50,8 @@ export const cartSlice = createSlice({
       const itemIndex = state.cartItems.findIndex(
         (obj) => obj.id === action.payload.id
       );
-      console.log(itemIndex);
 
       const price = action.payload.price;
-      console.log(price);
 
       if (itemIndex !== -1) {
         state.cartItems[itemIndex].quantity += 1;
@@ -70,7 +68,7 @@ export const cartSlice = createSlice({
         price: action.payload.price,
         image: action.payload.image,
       };
-      console.log(newItem);
+
       state.heartItems.push(newItem);
       updateLocalStorageHeart(state.heartItems);
     },
@@ -80,7 +78,6 @@ export const cartSlice = createSlice({
         price: action.payload.price,
       };
 
-      console.log(qtyTotal);
       state.cartItems.push(qtyTotal);
     },
     deleteProduct: (state, action) => {
@@ -88,7 +85,6 @@ export const cartSlice = createSlice({
       state.cartItems = state.cartItems.filter((el) => el.id !== id);
 
       updateLocalStorage(state.cartItems);
-      console.log(state.cartItems);
     },
     deleteHeartProduct: (state, action) => {
       const id = action.payload;
@@ -98,7 +94,7 @@ export const cartSlice = createSlice({
     },
     cleanArray: (state, action) => {
       state.cartItems.splice(0, state.cartItems.length);
-      console.log(state.cartItems);
+
       updateLocalStorage(state.cartItems);
     },
   },
