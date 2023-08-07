@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import PrimaryButton from "../reusable-ui/PrimaryButton";
 import { AiFillHeart } from "react-icons/ai";
-import { IoIosAddCircle } from "react-icons/io";
+// import { IoIosAddCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
 import {
   addHeartProduct,
@@ -67,9 +67,10 @@ function Card({ id, name, image, price }) {
           onClick={handleClick}
         />
       </div>
-      <div className="add">
+
+      {/* <div className="add">
         <IoIosAddCircle className="add-icon" />
-      </div>
+      </div> */}
     </CardStyled>
   );
 }
@@ -149,7 +150,7 @@ const CardStyled = styled.div`
       font-size: 23px;
     }
   }
-  .add {
+  /* .add {
     height: 30px;
     width: 50px;
     position: absolute;
@@ -161,7 +162,7 @@ const CardStyled = styled.div`
       font-size: 25px;
       color: black;
     }
-  }
+  } */
 `;
 
 export default Card;

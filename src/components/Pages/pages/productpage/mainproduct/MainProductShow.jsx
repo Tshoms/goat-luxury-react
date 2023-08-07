@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { sneakers } from "../../../../../fakedata/ProductsData";
 import styled from "styled-components";
