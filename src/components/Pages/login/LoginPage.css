@@ -30,6 +30,19 @@ video {
   /* color: white; */
 }
 
+.content2 {
+  display: none;
+  /* position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  /* color: white; */
+}
+
 /* rgba - pour l'effet noir */
 .overlay {
   position: absolute;
@@ -58,7 +71,27 @@ h2 {
 /* ---- media Querie ---- */
 
 @media (max-width: 1210px) {
-  .main-home {
+  .content {
     display: none;
+  }
+
+  .content2 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* color: white; */
+  }
+
+  .title2 {
+    font-size: 39px;
+  }
+
+  .h2mobile {
+    font-size: 20px;
   }
 }

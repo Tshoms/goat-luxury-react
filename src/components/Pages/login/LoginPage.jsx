@@ -10,6 +10,10 @@ function LoginPage() {
     <div className="main-home">
       <div className="overlay"></div>
       <video src={YoungStyled} autoPlay loop muted></video>
+      <div className="content2">
+        <h1 className="title2">The Goat Luxury</h1>
+        <h2 className="h2mobile">Mobile coming soon</h2>
+      </div>
       <div className="content">
         <h1>The Goat Luxury</h1>
         <h2>Welcome to our store</h2>
